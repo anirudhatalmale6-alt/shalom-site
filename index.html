@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shalom Tabernacle de Gloire — Enposib, Posib</title>
+<meta name="description" content="Shalom Tabernacle de Gloire Inc. Building faith, community, and opportunity across Haiti and the diaspora.">
+<meta property="og:title" content="Shalom Tabernacle de Gloire — Enposib, Posib">
+<meta property="og:description" content="Building faith, community, and opportunity across Haiti and the diaspora.">
+<meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+
+/* Mobile menu */
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+}
+
+/* ===== HERO ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 60%, #001847 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+/* Dove silhouette — abstract wing shape */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  border-radius: 30% 70% 60% 40% / 50% 30% 70% 50%;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); background: rgba(212,168,67,0.12); border: 1px solid rgba(212,168,67,0.25); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 28px; line-height: 1.7; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+.btn-outline-green { background: transparent; color: #6BE89A; border-color: rgba(107,232,154,0.35); }
+.btn-outline-green:hover { background: rgba(107,232,154,0.1); border-color: rgba(107,232,154,0.6); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: #246F3F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,78,0.25); }
+
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== VISION / MISSION ===== */
+.vm-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+.vm-card { padding: 28px 24px; border-radius: 16px; border: 1px solid var(--gray-200); background: var(--gray-50); }
+.vm-card-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.vm-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--gray-800); margin-bottom: 8px; }
+.vm-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.7; }
+@media (min-width: 640px) { .vm-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ===== FONDS VISION SHALOM ===== */
+.fonds { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%); padding: 56px 20px; color: #fff; }
+.fonds-inner { max-width: 1000px; margin: 0 auto; }
+.fonds .section-tag { color: var(--gold); }
+.fonds .section-title { color: #fff; }
+.fonds .section-desc { color: rgba(255,255,255,0.65); }
+.progress-wrap { margin: 28px 0 24px; }
+.progress-labels { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 8px; }
+.progress-labels .amount { font-family: var(--font-mono); font-weight: 600; color: var(--gold); }
+.progress-labels .goal { color: rgba(255,255,255,0.5); }
+.progress-bar { height: 10px; background: rgba(255,255,255,0.12); border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; width: 65%; background: linear-gradient(90deg, var(--gold), #E8C86A); border-radius: 10px; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.tier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 24px 0; }
+.tier { padding: 16px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+.tier-amount { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; color: var(--gold); }
+.tier-name { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+@media (min-width: 640px) { .tier-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* ===== MEMBERSHIP ===== */
+.benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+.benefit { padding: 20px 16px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); text-align: center; transition: all 0.25s; }
+.benefit:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,61,165,0.08); }
+.benefit-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.benefit-name { font-size: 0.82rem; font-weight: 600; color: var(--gray-800); }
+@media (min-width: 640px) { .benefits-grid { grid-template-columns: repeat(3, 1fr); } .benefits-grid .benefit:last-child { grid-column: 2; } }
+
+/* ===== AGRICULTURE ===== */
+.agri { background: var(--green-light); padding: 56px 20px; }
+.agri-inner { max-width: 1000px; margin: 0 auto; }
+.agri .section-tag { color: var(--green); }
+.agri-phase { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; background: rgba(45,139,78,0.1); display: inline-block; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px; }
+.agri-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.agri-feat { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--gray-600); }
+.agri-feat::before { content: '🌱'; font-size: 0.9rem; }
+
+/* ===== OPPORTUNITIES ===== */
+.opp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+.opp-card { padding: 20px 16px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); transition: all 0.25s; display: block; }
+.opp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.opp-card-icon { font-size: 1.3rem; margin-bottom: 8px; }
+.opp-card-name { font-size: 0.85rem; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+.opp-card-desc { font-size: 0.75rem; color: var(--gray-400); }
+@media (min-width: 640px) { .opp-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== EVENTS ===== */
+.event-list { display: grid; gap: 12px; margin: 24px 0; }
+.event-card { display: flex; gap: 16px; padding: 18px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); align-items: center; }
+.event-date { text-align: center; min-width: 52px; }
+.event-date .month { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+.event-date .day { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.1; }
+.event-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); margin-bottom: 2px; }
+.event-info p { font-size: 0.78rem; color: var(--gray-400); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Akèy</a>
+      <a href="about.html">Sou Nou</a>
+      <a href="donate.html">Don</a>
+      <a href="membership.html">Manm</a>
+      <a href="agriculture.html">Agrikilti</a>
+      <a href="opportunities.html">Opòtinite</a>
+      <a href="events.html">Evènman</a>
+      <a href="contact.html">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+    <a href="index.html">🏠 Akèy</a>
+    <a href="about.html">📖 Sou Nou</a>
+    <a href="donate.html">💛 Fè yon Don</a>
+    <a href="membership.html">🤝 Vin Manm</a>
+    <a href="agriculture.html">🌾 Pwojè Agrikilti</a>
+    <a href="opportunities.html">🚀 Opòtinite</a>
+    <a href="events.html">📅 Evènman</a>
+    <a href="contact.html">💬 Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">ENPOSIB, POSIB</div>
+  <h1>Shalom Tabernacle<br>de <em>Gloire</em></h1>
+  <p class="hero-sub">Bati lafwa, kominote, ak opòtinite nan tout Ayiti ak dyaspora a.</p>
+  <div class="hero-ctas">
+    <a href="donate.html" class="btn btn-gold">💛 Fè yon Don</a>
+    <a href="membership.html" class="btn btn-outline-white">🤝 Vin Manm</a>
+    <a href="agriculture.html" class="btn btn-outline-green">🌾 Sipòte Agrikilti</a>
+  </div>
+</section>
+
+<!-- VISION / MISSION -->
+<section class="section reveal">
+  <div class="section-tag">Vizyon &amp; Misyon</div>
+  <div class="vm-grid">
+    <div class="vm-card">
+      <div class="vm-card-icon">👁️</div>
+      <h3>Vizyon Nou</h3>
+      <p>Yon Ayiti kote chak moun gen aksè a lafwa, manje, ak opòtinite. Nou reve yon nasyon kote kominote yo pwospere ansanm.</p>
+    </div>
+    <div class="vm-card">
+      <div class="vm-card-icon">🎯</div>
+      <h3>Misyon Nou</h3>
+      <p>Ranfòse kominote yo atravè kwasans espirityèl, devlopman ekonomik, ak agrikilti dirab. Chak aksyon nou pran kreye enpak reyèl.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FONDS VISION SHALOM -->
+<section class="fonds reveal">
+  <div class="fonds-inner">
+    <div class="section-tag">Don</div>
+    <h2 class="section-title">Fonds Vision Shalom</h2>
+    <p class="section-desc">Kontribisyon ou ede bati lekòl, sipòte pwojè agrikilti, ak bay fanmi yo espwa pou yon pi bon demen.</p>
+    <div class="progress-wrap">
+      <div class="progress-labels">
+        <span class="amount">325,000 HTG</span>
+        <span class="goal">objektif: 500,000 HTG</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-amount">1,000 HTG</div>
+        <div class="tier-name">Zanmi</div>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">5,000 HTG</div>
+        <div class="tier-name">Patnè</div>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">25,000 HTG</div>
+        <div class="tier-name">Chanpyon</div>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">100,000+ HTG</div>
+        <div class="tier-name">Vizyonè</div>
+      </div>
+    </div>
+    <a href="donate.html" class="btn btn-gold">💛 Fè yon Don Kounye a</a>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="section reveal">
+  <div class="section-tag">Manm</div>
+  <h2 class="section-title">Vin Pati nan Fanmi Shalom</h2>
+  <p class="section-desc">Rejwenn yon kominote ki kwè nan pouvwa lafwa, inite, ak aksyon kolektif.</p>
+  <div class="benefits-grid">
+    <div class="benefit">
+      <div class="benefit-icon">🤝</div>
+      <div class="benefit-name">Kominote</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">✝️</div>
+      <div class="benefit-name">Kwasans Espirityèl</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">💼</div>
+      <div class="benefit-name">Rezo Biznis</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🌾</div>
+      <div class="benefit-name">Aksè Agrikilti</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">📅</div>
+      <div class="benefit-name">Evènman Eksklizif</div>
+    </div>
+  </div>
+  <a href="membership.html" class="btn btn-blue">🤝 Enskri Kounye a</a>
+</section>
+
+<!-- AGRICULTURE -->
+<section class="agri reveal">
+  <div class="agri-inner">
+    <div class="section-tag">Agrikilti</div>
+    <span class="agri-phase">Faz 1: Pilot</span>
+    <h2 class="section-title">Pwojè Agrikilti</h2>
+    <p class="section-desc">Bati avni manje Ayiti. Nou devlope tè pou plante manje pou kominote nou an — kreye djòb, bay manje, ak bati endepandans alimantè.</p>
+    <div class="agri-features">
+      <div class="agri-feat">Tè pou plante</div>
+      <div class="agri-feat">Kreyasyon djòb</div>
+      <div class="agri-feat">Manje pou kominote</div>
+      <div class="agri-feat">Endepandans alimantè</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="agriculture.html" class="btn btn-green">🌾 Aprann Plis</a>
+      <a href="donate.html" class="btn btn-outline-white" style="border-color:var(--green);color:var(--green);">💛 Sipòte Pwojè a</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITIES -->
+<section class="section reveal">
+  <div class="section-tag">Opòtinite</div>
+  <h2 class="section-title">Ekosistèm HaitiBiznis</h2>
+  <p class="section-desc">Dekouvri platfòm ki ka ede ou grandi, touche, ak konekte.</p>
+  <div class="opp-grid">
+    <a href="https://48hoursready.com" class="opp-card" style="border-left:3px solid #F97316;">
+      <div class="opp-card-icon">🚀</div>
+      <div class="opp-card-name">48HoursReady</div>
+      <div class="opp-card-desc">Bati prezans dijital ou</div>
+    </a>
+    <a href="https://myplopplop.com" class="opp-card" style="border-left:3px solid #D21034;">
+      <div class="opp-card-icon">🛒</div>
+      <div class="opp-card-name">MyPlopPlop</div>
+      <div class="opp-card-desc">Vann pwodwi sou entènèt</div>
+    </a>
+    <a href="https://msouwout.com" class="opp-card" style="border-left:3px solid #003DA5;">
+      <div class="opp-card-icon">🚗</div>
+      <div class="opp-card-name">MsouWout</div>
+      <div class="opp-card-desc">Kondwi ak livre</div>
+    </a>
+    <a href="#" class="opp-card" style="border-left:3px solid #7C3AED;">
+      <div class="opp-card-icon">🎫</div>
+      <div class="opp-card-name">Tikè Lakay</div>
+      <div class="opp-card-desc">Evènman ak tikè</div>
+    </a>
+    <a href="#" class="opp-card" style="border-left:3px solid #0891B2;">
+      <div class="opp-card-icon">👨‍💼</div>
+      <div class="opp-card-name">Pwofesyonèl Lakay</div>
+      <div class="opp-card-desc">Sèvis pwofesyonèl</div>
+    </a>
+    <a href="#" class="opp-card" style="border-left:3px solid #16A34A;">
+      <div class="opp-card-icon">💰</div>
+      <div class="opp-card-name">Sòl</div>
+      <div class="opp-card-desc">Epay kominotè</div>
+    </a>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section reveal" style="background:var(--gray-50);margin:0;max-width:none;padding:56px 20px;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div class="section-tag">Evènman</div>
+    <h2 class="section-title">Pwochen Evènman yo</h2>
+    <div class="event-list">
+      <div class="event-card">
+        <div class="event-date">
+          <div class="month">JEN</div>
+          <div class="day">15</div>
+        </div>
+        <div class="event-info">
+          <h4>Sèvis Espesyal Dimanch</h4>
+          <p>10:00 AM — Shalom Tabernacle, Port-au-Prince</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">
+          <div class="month">JEN</div>
+          <div class="day">22</div>
+        </div>
+        <div class="event-info">
+          <h4>Konferans Biznis &amp; Lafwa</h4>
+          <p>2:00 PM — Sèvis espesyal pou antreprenè</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date">
+          <div class="month">JIY</div>
+          <div class="day">06</div>
+        </div>
+        <div class="event-info">
+          <h4>Lansman Pwojè Agrikilti Faz 1</h4>
+          <p>9:00 AM — Seremoni ofisyèl</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px;">
+      <a href="events.html" class="btn btn-blue">📅 Wè Tout Evènman</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com">HaitiBiznis</a>
+        <a href="https://myplopplop.com">MyPlopPlop</a>
+        <a href="https://msouwout.com">MsouWout</a>
+        <a href="https://48hoursready.com">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">💬</a>
+
+<script>
+/* Scroll reveal */
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      reveals[i].classList.add('visible');
+    }
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+/* Language (placeholder - full i18n to be added) */
+function setLang(lang) {
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) {
+      btns[i].classList.add('active');
+    }
+  }
+  localStorage.setItem('shalom-lang', lang);
+}
+
+/* Restore saved lang */
+var savedLang = localStorage.getItem('shalom-lang');
+if (savedLang) setLang(savedLang);
+</script>
+</body>
+</html>
