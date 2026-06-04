@@ -218,14 +218,14 @@ a { text-decoration: none; color: inherit; }
       <span>Shalom</span>
     </a>
     <div class="nav-links">
-      <a href="index.html">Akèy</a>
-      <a href="about.html">Sou Nou</a>
-      <a href="donate.html">Don</a>
-      <a href="membership.html" class="active">Manm</a>
-      <a href="agriculture.html">Agrikilti</a>
-      <a href="opportunities.html">Opòtinite</a>
-      <a href="events.html">Evènman</a>
-      <a href="contact.html">Kontakte</a>
+      <a href="index.html" data-i18n="nav_home">Akèy</a>
+      <a href="about.html" data-i18n="nav_about">Sou Nou</a>
+      <a href="donate.html" data-i18n="nav_donate">Don</a>
+      <a href="membership.html" class="active" data-i18n="nav_member">Manm</a>
+      <a href="agriculture.html" data-i18n="nav_agri">Agrikilti</a>
+      <a href="opportunities.html" data-i18n="nav_opp">Opòtinite</a>
+      <a href="events.html" data-i18n="nav_events">Evènman</a>
+      <a href="contact.html" data-i18n="nav_contact">Kontakte</a>
     </div>
     <div class="nav-right">
       <div class="lang-toggle">
@@ -454,15 +454,15 @@ a { text-decoration: none; color: inherit; }
       </div>
       <div class="footer-col">
         <h5>Lyen Rapid</h5>
-        <a href="about.html">Sou Nou</a>
+        <a href="about.html" data-i18n="nav_about">Sou Nou</a>
         <a href="donate.html">Fè yon Don</a>
         <a href="membership.html">Vin Manm</a>
-        <a href="agriculture.html">Agrikilti</a>
+        <a href="agriculture.html" data-i18n="nav_agri">Agrikilti</a>
       </div>
       <div class="footer-col">
         <h5>Kominote</h5>
-        <a href="opportunities.html">Opòtinite</a>
-        <a href="events.html">Evènman</a>
+        <a href="opportunities.html" data-i18n="nav_opp">Opòtinite</a>
+        <a href="events.html" data-i18n="nav_events">Evènman</a>
         <a href="contact.html">Kontakte Nou</a>
         <a href="https://wa.me/50946859702">WhatsApp</a>
       </div>
@@ -749,7 +749,7 @@ var translations = {
   }
 };
 
-function setLang(lang) {
+function setLang(lang) { if(typeof shalomSetLang==='function'){shalomSetLang(lang);return}
   var btns = document.querySelectorAll('.lang-toggle button');
   for (var i = 0; i < btns.length; i++) {
     btns[i].classList.remove('active');
@@ -780,5 +780,6 @@ if (savedLang) {
   setLang('kr');
 }
 </script>
+<script src="js/i18n.js"></script>
 </body>
 </html>
