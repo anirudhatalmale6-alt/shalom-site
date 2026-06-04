@@ -8,6 +8,12 @@
 <meta property="og:title" content="Shalom Tabernacle de Gloire — Enposib, Posib">
 <meta property="og:description" content="Building faith, community, and opportunity across Haiti and the diaspora.">
 <meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#003DA5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Shalom">
+<link rel="apple-touch-icon" href="assets/shalom-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -253,7 +259,7 @@ a { text-decoration: none; color: inherit; }
 
 <!-- HERO -->
 <section class="hero">
-  <img src="assets/shalom-logo.jpg" alt="Shalom Tabernacle de Gloire" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin:0 auto 16px;display:block;border:3px solid rgba(255,255,255,0.2);box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+  <img src="assets/shalom-logo.jpg" alt="Shalom Tabernacle de Gloire" style="width:200px;height:auto;border-radius:16px;object-fit:contain;margin:0 auto 16px;display:block;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
   <div class="hero-badge">ENPOSIB, POSIB</div>
   <h1>Shalom Tabernacle<br>de <em>Gloire</em></h1>
   <p class="hero-sub" data-i18n="hero_sub">Bati lafwa, kominote, ak opòtinite nan tout Ayiti ak dyaspora a.</p>
@@ -374,17 +380,17 @@ a { text-decoration: none; color: inherit; }
   <h2 class="section-title" data-i18n="eco_title">Ekosistèm HaitiBiznis</h2>
   <p class="section-desc" data-i18n="eco_desc">Dekouvri platfòm ki ka ede ou grandi, touche, ak konekte.</p>
   <div class="opp-grid">
-    <a href="https://48hoursready.com" class="opp-card" style="border-left:3px solid #F97316;">
+    <a href="https://48hoursready.com?ref=SHALOM" class="opp-card" style="border-left:3px solid #F97316;">
       <div class="opp-card-icon">🚀</div>
       <div class="opp-card-name">48HoursReady</div>
       <div class="opp-card-desc">Bati prezans dijital ou</div>
     </a>
-    <a href="https://myplopplop.com" class="opp-card" style="border-left:3px solid #D21034;">
+    <a href="https://myplopplop.com?ref=SHALOM" class="opp-card" style="border-left:3px solid #D21034;">
       <div class="opp-card-icon">🛒</div>
       <div class="opp-card-name">MyPlopPlop</div>
       <div class="opp-card-desc">Vann pwodwi sou entènèt</div>
     </a>
-    <a href="https://msouwout.com" class="opp-card" style="border-left:3px solid #003DA5;">
+    <a href="https://msouwout.com?ref=SHALOM" class="opp-card" style="border-left:3px solid #003DA5;">
       <div class="opp-card-icon">🚗</div>
       <div class="opp-card-name">MsouWout</div>
       <div class="opp-card-desc">Kondwi ak livre</div>
@@ -475,15 +481,15 @@ a { text-decoration: none; color: inherit; }
       </div>
       <div class="footer-col">
         <h5>Ekosistèm</h5>
-        <a href="https://haitibiznis.com">HaitiBiznis</a>
-        <a href="https://myplopplop.com">MyPlopPlop</a>
-        <a href="https://msouwout.com">MsouWout</a>
-        <a href="https://48hoursready.com">48HoursReady</a>
+        <a href="https://haitibiznis.com?ref=SHALOM">HaitiBiznis</a>
+        <a href="https://myplopplop.com?ref=SHALOM">MyPlopPlop</a>
+        <a href="https://msouwout.com?ref=SHALOM">MsouWout</a>
+        <a href="https://48hoursready.com?ref=SHALOM">48HoursReady</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
-      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+      <span>Powered by <a href="https://haitibiznis.com?ref=SHALOM">HaitiBiznis</a></span>
     </div>
   </div>
 </footer>
@@ -564,6 +570,11 @@ function setLang(lang) {
 
 var savedLang = localStorage.getItem('shalom-lang') || 'kr';
 setLang(savedLang);
+
+/* PWA Service Worker */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function() {});
+}
 </script>
 </body>
 </html>
