@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Vin Manm — Shalom Tabernacle de Gloire</title>
+<meta name="description" content="Rejwenn fanmi Shalom Tabernacle de Gloire. Vin manm epi benefisye kominote, kwasans espirityèl, ak opòtinite biznis.">
+<meta property="og:title" content="Vin Manm — Shalom Tabernacle de Gloire">
+<meta property="og:description" content="Join the Shalom family. Membership is free — community, spiritual growth, business network, and more.">
+<meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+
+/* Mobile menu */
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+}
+
+/* ===== HERO ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 60%, #001847 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  border-radius: 30% 70% 60% 40% / 50% 30% 70% 50%;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); background: rgba(212,168,67,0.12); border: 1px solid rgba(212,168,67,0.25); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 28px; line-height: 1.7; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: #246F3F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,78,0.25); }
+
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== BENEFITS GRID ===== */
+.benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+.benefit { padding: 24px 16px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); text-align: center; transition: all 0.25s; }
+.benefit:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,61,165,0.08); }
+.benefit-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.benefit-name { font-size: 0.85rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+.benefit-desc { font-size: 0.78rem; color: var(--gray-400); line-height: 1.5; }
+@media (min-width: 640px) { .benefits-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== FORM SECTION ===== */
+.form-section { background: var(--gray-50); padding: 56px 20px; }
+.form-inner { max-width: 680px; margin: 0 auto; }
+.form-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 20px; padding: 32px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+@media (min-width: 640px) { .form-card { padding: 40px 36px; } }
+.form-card h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; }
+.form-card .form-subtitle { font-size: 0.88rem; color: var(--gray-400); margin-bottom: 28px; line-height: 1.6; }
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 540px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full-width { grid-column: 1 / -1; }
+.form-group label { font-size: 0.78rem; font-weight: 600; color: var(--gray-600); }
+.form-group label .required { color: #E53E3E; margin-left: 2px; }
+.form-group input,
+.form-group select,
+.form-group textarea { font-family: var(--font-body); font-size: 0.88rem; padding: 11px 14px; border: 1px solid var(--gray-200); border-radius: 10px; background: var(--white); color: var(--gray-800); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,61,165,0.08); }
+.form-group input::placeholder { color: var(--gray-300); }
+.form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238D95A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+
+/* Contribution checkbox area */
+.contrib-toggle { display: flex; align-items: center; gap: 10px; padding: 16px; background: var(--gold-light); border: 1px solid rgba(212,168,67,0.2); border-radius: 12px; cursor: pointer; }
+.contrib-toggle input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
+.contrib-toggle .contrib-label { font-size: 0.85rem; font-weight: 500; color: var(--gray-600); }
+.contrib-amount { display: none; margin-top: 12px; }
+.contrib-amount.show { display: block; }
+.contrib-amount label { font-size: 0.78rem; font-weight: 600; color: var(--gray-600); display: block; margin-bottom: 6px; }
+.contrib-amount input { font-family: var(--font-body); font-size: 0.88rem; padding: 11px 14px; border: 1px solid var(--gray-200); border-radius: 10px; background: var(--white); color: var(--gray-800); transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%; }
+.contrib-amount input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,168,67,0.12); }
+
+.form-submit { margin-top: 24px; }
+.form-submit .btn { width: 100%; justify-content: center; padding: 14px 24px; font-size: 0.95rem; }
+
+/* Validation states */
+.form-group.error input,
+.form-group.error select { border-color: #E53E3E; }
+.form-group .error-msg { font-size: 0.72rem; color: #E53E3E; display: none; }
+.form-group.error .error-msg { display: block; }
+
+/* ===== SUCCESS SCREEN ===== */
+.success-screen { display: none; text-align: center; padding: 48px 24px; }
+.success-screen.show { display: block; }
+.success-icon { font-size: 3.5rem; margin-bottom: 16px; }
+.success-screen h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gray-800); margin-bottom: 12px; }
+.success-screen p { font-size: 0.92rem; color: var(--gray-400); max-width: 420px; margin: 0 auto 24px; line-height: 1.7; }
+
+/* ===== FAQ ===== */
+.faq-list { margin-top: 24px; display: grid; gap: 12px; }
+.faq-item { border: 1px solid var(--gray-200); border-radius: 14px; background: var(--white); overflow: hidden; transition: border-color 0.2s; }
+.faq-item:hover { border-color: var(--blue); }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; cursor: pointer; gap: 12px; background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+.faq-q h4 { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); }
+.faq-q .faq-arrow { font-size: 0.8rem; color: var(--gray-400); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+.faq-a-inner { padding: 0 20px 18px; font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Akèy</a>
+      <a href="about.html">Sou Nou</a>
+      <a href="donate.html">Don</a>
+      <a href="membership.html" class="active">Manm</a>
+      <a href="agriculture.html">Agrikilti</a>
+      <a href="opportunities.html">Opòtinite</a>
+      <a href="events.html">Evènman</a>
+      <a href="contact.html">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#10005;</button>
+    <a href="index.html">&#127968; Akèy</a>
+    <a href="about.html">&#128214; Sou Nou</a>
+    <a href="donate.html">&#128155; Fè yon Don</a>
+    <a href="membership.html">&#129309; Vin Manm</a>
+    <a href="agriculture.html">&#127806; Pwojè Agrikilti</a>
+    <a href="opportunities.html">&#128640; Opòtinite</a>
+    <a href="events.html">&#128197; Evènman</a>
+    <a href="contact.html">&#128172; Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge" data-i18n="hero-badge">REJWENN FANMI AN</div>
+  <h1 data-i18n="hero-title">Vin Pati nan<br>Fanmi <em>Shalom</em></h1>
+  <p class="hero-sub" data-i18n="hero-sub">Rejwenn yon kominote ki kwè nan pouvwa lafwa, inite, ak aksyon kolektif.</p>
+  <div class="hero-ctas">
+    <a href="#membership-form" class="btn btn-gold" data-i18n="hero-cta-apply">&#129309; Enskri Kounye a</a>
+    <a href="#faq" class="btn btn-outline-white" data-i18n="hero-cta-faq">&#10067; Kesyon yo</a>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section reveal">
+  <div class="section-tag" data-i18n="benefits-tag">Avantaj Manm</div>
+  <h2 class="section-title" data-i18n="benefits-title">Poukisa Vin Manm?</h2>
+  <p class="section-desc" data-i18n="benefits-desc">Manm Shalom gen aksè a yon ekosistèm konplè ki sipòte kwasans espirityèl, ekonomik, ak kominotè.</p>
+  <div class="benefits-grid">
+    <div class="benefit">
+      <div class="benefit-icon">&#129309;</div>
+      <div class="benefit-name" data-i18n="b-community">Kominote</div>
+      <div class="benefit-desc" data-i18n="b-community-desc">Konekte ak frè ak sè nan lafwa</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#10013;&#65039;</div>
+      <div class="benefit-name" data-i18n="b-spiritual">Kwasans Espirityèl</div>
+      <div class="benefit-desc" data-i18n="b-spiritual-desc">Sèvis chak semèn, etid biblik, gwoup lapriyè</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#128188;</div>
+      <div class="benefit-name" data-i18n="b-business">Rezo Biznis</div>
+      <div class="benefit-desc" data-i18n="b-business-desc">Aksè nan ekosistèm opòtinite HaitiBiznis</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#127806;</div>
+      <div class="benefit-name" data-i18n="b-agriculture">Aksè Agrikilti</div>
+      <div class="benefit-desc" data-i18n="b-agriculture-desc">Patisipasyon priyoritè nan pwojè agrikilti</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#128197;</div>
+      <div class="benefit-name" data-i18n="b-events">Evènman Eksklizif</div>
+      <div class="benefit-desc" data-i18n="b-events-desc">Aksè eksklizif nan konferans ak rasanbleman</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#127891;</div>
+      <div class="benefit-name" data-i18n="b-mentorship">Mentora</div>
+      <div class="benefit-desc" data-i18n="b-mentorship-desc">Gidans nan men dirijan legliz la</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP FORM -->
+<section class="form-section reveal" id="membership-form">
+  <div class="form-inner">
+    <div class="form-card" id="formCard">
+      <h2 data-i18n="form-title">Fòm Enskripsyon</h2>
+      <p class="form-subtitle" data-i18n="form-subtitle">Ranpli enfòmasyon ou yo pou vin manm fanmi Shalom. Tout chan ak (*) obligatwa.</p>
+
+      <form id="membershipForm" novalidate>
+        <div class="form-grid">
+          <!-- Full Name -->
+          <div class="form-group full-width">
+            <label data-i18n="label-name">Non Konplè <span class="required">*</span></label>
+            <input type="text" id="fullName" required placeholder="Ex: Jean-Baptiste Pierre">
+            <span class="error-msg" data-i18n="err-name">Tanpri antre non konplè ou.</span>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label data-i18n="label-phone">Telefòn <span class="required">*</span></label>
+            <input type="tel" id="phone" required placeholder="+509 4685 9702" value="+509 ">
+            <span class="error-msg" data-i18n="err-phone">Tanpri antre nimewo telefòn ou.</span>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="form-group">
+            <label data-i18n="label-whatsapp">Nimewo WhatsApp</label>
+            <input type="tel" id="whatsapp" placeholder="+509 4685 9702">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group full-width">
+            <label data-i18n="label-email">Imèl <span class="required">*</span></label>
+            <input type="email" id="email" required placeholder="jean@example.com">
+            <span class="error-msg" data-i18n="err-email">Tanpri antre yon adrès imèl valab.</span>
+          </div>
+
+          <!-- Location -->
+          <div class="form-group">
+            <label data-i18n="label-location">Lokasyon / Vil</label>
+            <input type="text" id="location" placeholder="Ex: Port-au-Prince">
+          </div>
+
+          <!-- Profession -->
+          <div class="form-group">
+            <label data-i18n="label-profession">Pwofesyon</label>
+            <input type="text" id="profession" placeholder="Ex: Ansenyan, Komèsan">
+          </div>
+
+          <!-- Church Affiliation -->
+          <div class="form-group full-width">
+            <label data-i18n="label-church">Legliz / Afilyasyon Kominotè</label>
+            <input type="text" id="church" placeholder="Ex: Shalom Tabernacle, Pòtoprens">
+          </div>
+
+          <!-- Membership Category -->
+          <div class="form-group">
+            <label data-i18n="label-category">Kategori Manm <span class="required">*</span></label>
+            <select id="category" required>
+              <option value="" data-i18n="opt-select">-- Chwazi --</option>
+              <option value="regular" data-i18n="opt-regular">Manm Regilye</option>
+              <option value="youth" data-i18n="opt-youth">Manm Jèn</option>
+              <option value="diaspora" data-i18n="opt-diaspora">Manm Dyaspora</option>
+              <option value="business" data-i18n="opt-business">Patnè Biznis</option>
+            </select>
+            <span class="error-msg" data-i18n="err-category">Tanpri chwazi yon kategori.</span>
+          </div>
+
+          <!-- Referral Code -->
+          <div class="form-group">
+            <label data-i18n="label-referral">Kòd Referans <span style="font-weight:400;color:var(--gray-400);font-size:0.72rem;">(opsyonèl)</span></label>
+            <input type="text" id="referral" placeholder="Ex: SHALOM2026">
+          </div>
+
+          <!-- Contribution toggle -->
+          <div class="form-group full-width">
+            <label class="contrib-toggle" for="contribCheck">
+              <input type="checkbox" id="contribCheck">
+              <span class="contrib-label" data-i18n="label-contrib">Mwen ta renmen fè yon kontribisyon manm</span>
+            </label>
+            <div class="contrib-amount" id="contribAmount">
+              <label data-i18n="label-amount">Montan (HTG)</label>
+              <input type="number" id="amount" placeholder="Ex: 1000" min="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit">
+          <button type="submit" class="btn btn-blue" data-i18n="btn-submit">&#129309; Soumèt Aplikasyon</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success Screen -->
+    <div class="form-card success-screen" id="successScreen">
+      <div class="success-icon">&#127881;</div>
+      <h2 data-i18n="success-title">Byenvini nan Fanmi Shalom!</h2>
+      <p data-i18n="success-msg">Mèsi pou enskripsyon ou. Nou pral kontakte ou sou WhatsApp pou konplete enrejistrasyon ou.</p>
+      <a href="index.html" class="btn btn-blue" data-i18n="success-btn">&#127968; Retounen Akèy</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section reveal" id="faq">
+  <div class="section-tag" data-i18n="faq-tag">Kesyon yo Poze Souvan</div>
+  <h2 class="section-title" data-i18n="faq-title">FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <h4 data-i18n="faq-q1">Èske manm nan gratis?</h4>
+        <span class="faq-arrow">&#9660;</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner" data-i18n="faq-a1">Wi, manm nan totalman gratis. Kontribisyon yo opsyonèl epi volontè. Ou ka vin manm san peye anyen.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <h4 data-i18n="faq-q2">Èske mwen ka enskri depi lòt bò dlo?</h4>
+        <span class="faq-arrow">&#9660;</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner" data-i18n="faq-a2">Wi, nou akeyi manm dyaspora toupatou nan mond lan. Chwazi kategori "Manm Dyaspora" nan fòm nan.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <h4 data-i18n="faq-q3">Ki avantaj manm yo genyen?</h4>
+        <span class="faq-arrow">&#9660;</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner" data-i18n="faq-a3">Manm yo jwenn aksè a kominote, kwasans espirityèl (sèvis, etid biblik, lapriyè), rezo biznis HaitiBiznis, patisipasyon priyoritè nan pwojè agrikilti, evènman eksklizif, ak mentora nan men dirijan legliz la.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com">HaitiBiznis</a>
+        <a href="https://myplopplop.com">MyPlopPlop</a>
+        <a href="https://msouwout.com">MsouWout</a>
+        <a href="https://48hoursready.com">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">&#128172;</a>
+
+<script>
+/* ===== SCROLL REVEAL ===== */
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      reveals[i].classList.add('visible');
+    }
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+/* ===== CONTRIBUTION TOGGLE ===== */
+document.getElementById('contribCheck').addEventListener('change', function() {
+  document.getElementById('contribAmount').classList.toggle('show', this.checked);
+});
+
+/* ===== FAQ TOGGLE ===== */
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  // Close all
+  var items = document.querySelectorAll('.faq-item');
+  for (var i = 0; i < items.length; i++) {
+    items[i].classList.remove('open');
+    items[i].querySelector('.faq-a').style.maxHeight = null;
+  }
+  // Open clicked if was closed
+  if (!isOpen) {
+    item.classList.add('open');
+    var answer = item.querySelector('.faq-a');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+/* ===== FORM VALIDATION & SUBMIT ===== */
+document.getElementById('membershipForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var valid = true;
+
+  // Clear previous errors
+  var groups = this.querySelectorAll('.form-group');
+  for (var i = 0; i < groups.length; i++) {
+    groups[i].classList.remove('error');
+  }
+
+  // Full Name
+  var name = document.getElementById('fullName');
+  if (!name.value.trim()) {
+    name.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  // Phone
+  var phone = document.getElementById('phone');
+  var phoneVal = phone.value.replace(/\s/g, '');
+  if (phoneVal.length < 8) {
+    phone.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  // Email
+  var email = document.getElementById('email');
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) {
+    email.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  // Category
+  var category = document.getElementById('category');
+  if (!category.value) {
+    category.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  if (!valid) {
+    // Scroll to first error
+    var firstError = this.querySelector('.form-group.error');
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return;
+  }
+
+  // Success — hide form, show success screen
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('successScreen').classList.add('show');
+  document.getElementById('successScreen').scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+/* ===== LANGUAGE SYSTEM ===== */
+var translations = {
+  kr: {
+    'hero-badge': 'REJWENN FANMI AN',
+    'hero-title': 'Vin Pati nan<br>Fanmi <em>Shalom</em>',
+    'hero-sub': 'Rejwenn yon kominote ki kwè nan pouvwa lafwa, inite, ak aksyon kolektif.',
+    'hero-cta-apply': '\u{1F91D} Enskri Kounye a',
+    'hero-cta-faq': '❓ Kesyon yo',
+    'benefits-tag': 'Avantaj Manm',
+    'benefits-title': 'Poukisa Vin Manm?',
+    'benefits-desc': 'Manm Shalom gen aksè a yon ekosistèm konplè ki sipòte kwasans espirityèl, ekonomik, ak kominotè.',
+    'b-community': 'Kominote',
+    'b-community-desc': 'Konekte ak frè ak sè nan lafwa',
+    'b-spiritual': 'Kwasans Espirityèl',
+    'b-spiritual-desc': 'Sèvis chak semèn, etid biblik, gwoup lapriyè',
+    'b-business': 'Rezo Biznis',
+    'b-business-desc': 'Aksè nan ekosistèm opòtinite HaitiBiznis',
+    'b-agriculture': 'Aksè Agrikilti',
+    'b-agriculture-desc': 'Patisipasyon priyoritè nan pwojè agrikilti',
+    'b-events': 'Evènman Eksklizif',
+    'b-events-desc': 'Aksè eksklizif nan konferans ak rasanbleman',
+    'b-mentorship': 'Mentora',
+    'b-mentorship-desc': 'Gidans nan men dirijan legliz la',
+    'form-title': 'Fòm Enskripsyon',
+    'form-subtitle': 'Ranpli enfòmasyon ou yo pou vin manm fanmi Shalom. Tout chan ak (*) obligatwa.',
+    'label-name': 'Non Konplè <span class="required">*</span>',
+    'label-phone': 'Telefòn <span class="required">*</span>',
+    'label-whatsapp': 'Nimewo WhatsApp',
+    'label-email': 'Imèl <span class="required">*</span>',
+    'label-location': 'Lokasyon / Vil',
+    'label-profession': 'Pwofesyon',
+    'label-church': 'Legliz / Afilyasyon Kominotè',
+    'label-category': 'Kategori Manm <span class="required">*</span>',
+    'label-referral': 'Kòd Referans <span style="font-weight:400;color:var(--gray-400);font-size:0.72rem;">(opsyonèl)</span>',
+    'label-contrib': 'Mwen ta renmen fè yon kontribisyon manm',
+    'label-amount': 'Montan (HTG)',
+    'btn-submit': '\u{1F91D} Soumèt Aplikasyon',
+    'err-name': 'Tanpri antre non konplè ou.',
+    'err-phone': 'Tanpri antre nimewo telefòn ou.',
+    'err-email': 'Tanpri antre yon adrès imèl valab.',
+    'err-category': 'Tanpri chwazi yon kategori.',
+    'opt-select': '-- Chwazi --',
+    'opt-regular': 'Manm Regilye',
+    'opt-youth': 'Manm Jèn',
+    'opt-diaspora': 'Manm Dyaspora',
+    'opt-business': 'Patnè Biznis',
+    'success-title': 'Byenvini nan Fanmi Shalom!',
+    'success-msg': 'Mèsi pou enskripsyon ou. Nou pral kontakte ou sou WhatsApp pou konplete enrejistrasyon ou.',
+    'success-btn': '\u{1F3E0} Retounen Akèy',
+    'faq-tag': 'Kesyon yo Poze Souvan',
+    'faq-title': 'FAQ',
+    'faq-q1': 'Èske manm nan gratis?',
+    'faq-a1': 'Wi, manm nan totalman gratis. Kontribisyon yo opsyonèl epi volontè. Ou ka vin manm san peye anyen.',
+    'faq-q2': 'Èske mwen ka enskri depi lòt bò dlo?',
+    'faq-a2': 'Wi, nou akeyi manm dyaspora toupatou nan mond lan. Chwazi kategori "Manm Dyaspora" nan fòm nan.',
+    'faq-q3': 'Ki avantaj manm yo genyen?',
+    'faq-a3': 'Manm yo jwenn aksè a kominote, kwasans espirityèl (sèvis, etid biblik, lapriyè), rezo biznis HaitiBiznis, patisipasyon priyoritè nan pwojè agrikilti, evènman eksklizif, ak mentora nan men dirijan legliz la.'
+  },
+  fr: {
+    'hero-badge': 'REJOIGNEZ LA FAMILLE',
+    'hero-title': 'Rejoignez la<br>Famille <em>Shalom</em>',
+    'hero-sub': 'Rejoignez une communauté qui croit au pouvoir de la foi, de l\'unité et de l\'action collective.',
+    'hero-cta-apply': '\u{1F91D} S\'inscrire',
+    'hero-cta-faq': '❓ Questions',
+    'benefits-tag': 'Avantages Membres',
+    'benefits-title': 'Pourquoi Devenir Membre?',
+    'benefits-desc': 'Les membres Shalom ont accès à un écosystème complet soutenant la croissance spirituelle, économique et communautaire.',
+    'b-community': 'Communauté',
+    'b-community-desc': 'Connectez-vous avec des frères et sœurs dans la foi',
+    'b-spiritual': 'Croissance Spirituelle',
+    'b-spiritual-desc': 'Services hebdomadaires, études bibliques, groupes de prière',
+    'b-business': 'Réseau d\'Affaires',
+    'b-business-desc': 'Accès à l\'écosystème d\'opportunités HaitiBiznis',
+    'b-agriculture': 'Accès Agriculture',
+    'b-agriculture-desc': 'Participation prioritaire aux projets agricoles',
+    'b-events': 'Événements Exclusifs',
+    'b-events-desc': 'Accès exclusif aux conférences et rassemblements',
+    'b-mentorship': 'Mentorat',
+    'b-mentorship-desc': 'Accompagnement par les dirigeants de l\'église',
+    'form-title': 'Formulaire d\'Inscription',
+    'form-subtitle': 'Remplissez vos informations pour devenir membre de la famille Shalom. Les champs avec (*) sont obligatoires.',
+    'label-name': 'Nom Complet <span class="required">*</span>',
+    'label-phone': 'Téléphone <span class="required">*</span>',
+    'label-whatsapp': 'Numéro WhatsApp',
+    'label-email': 'E-mail <span class="required">*</span>',
+    'label-location': 'Localisation / Ville',
+    'label-profession': 'Profession',
+    'label-church': 'Église / Affiliation Communautaire',
+    'label-category': 'Catégorie de Membre <span class="required">*</span>',
+    'label-referral': 'Code de Référence <span style="font-weight:400;color:var(--gray-400);font-size:0.72rem;">(optionnel)</span>',
+    'label-contrib': 'Je souhaite faire une contribution de membre',
+    'label-amount': 'Montant (HTG)',
+    'btn-submit': '\u{1F91D} Soumettre la Demande',
+    'err-name': 'Veuillez entrer votre nom complet.',
+    'err-phone': 'Veuillez entrer votre numéro de téléphone.',
+    'err-email': 'Veuillez entrer une adresse e-mail valide.',
+    'err-category': 'Veuillez choisir une catégorie.',
+    'opt-select': '-- Choisir --',
+    'opt-regular': 'Membre Régulier',
+    'opt-youth': 'Membre Jeune',
+    'opt-diaspora': 'Membre Diaspora',
+    'opt-business': 'Partenaire d\'Affaires',
+    'success-title': 'Bienvenue dans la Famille Shalom!',
+    'success-msg': 'Merci pour votre inscription. Nous vous contacterons via WhatsApp pour compléter votre enregistrement.',
+    'success-btn': '\u{1F3E0} Retour à l\'Accueil',
+    'faq-tag': 'Questions Fréquentes',
+    'faq-title': 'FAQ',
+    'faq-q1': 'L\'adhésion est-elle gratuite?',
+    'faq-a1': 'Oui, l\'adhésion est entièrement gratuite. Les contributions sont optionnelles et volontaires. Vous pouvez devenir membre sans rien payer.',
+    'faq-q2': 'Puis-je m\'inscrire depuis l\'étranger?',
+    'faq-a2': 'Oui, nous accueillons les membres de la diaspora du monde entier. Choisissez la catégorie "Membre Diaspora" dans le formulaire.',
+    'faq-q3': 'Quels sont les avantages des membres?',
+    'faq-a3': 'Les membres bénéficient de la communauté, de la croissance spirituelle (services, études bibliques, prière), du réseau d\'affaires HaitiBiznis, de la participation prioritaire aux projets agricoles, d\'événements exclusifs et du mentorat des dirigeants de l\'église.'
+  },
+  en: {
+    'hero-badge': 'JOIN THE FAMILY',
+    'hero-title': 'Join the<br><em>Shalom</em> Family',
+    'hero-sub': 'Join a community that believes in the power of faith, unity, and collective action.',
+    'hero-cta-apply': '\u{1F91D} Apply Now',
+    'hero-cta-faq': '❓ Questions',
+    'benefits-tag': 'Member Benefits',
+    'benefits-title': 'Why Become a Member?',
+    'benefits-desc': 'Shalom members gain access to a complete ecosystem supporting spiritual, economic, and community growth.',
+    'b-community': 'Community',
+    'b-community-desc': 'Connect with brothers and sisters in faith',
+    'b-spiritual': 'Spiritual Growth',
+    'b-spiritual-desc': 'Weekly services, Bible study, prayer groups',
+    'b-business': 'Business Network',
+    'b-business-desc': 'Access to HaitiBiznis ecosystem opportunities',
+    'b-agriculture': 'Agriculture Access',
+    'b-agriculture-desc': 'Priority participation in farming projects',
+    'b-events': 'Exclusive Events',
+    'b-events-desc': 'Exclusive access to conferences and gatherings',
+    'b-mentorship': 'Mentorship',
+    'b-mentorship-desc': 'Guidance from church leadership',
+    'form-title': 'Membership Application',
+    'form-subtitle': 'Fill in your information to join the Shalom family. Fields marked with (*) are required.',
+    'label-name': 'Full Name <span class="required">*</span>',
+    'label-phone': 'Phone <span class="required">*</span>',
+    'label-whatsapp': 'WhatsApp Number',
+    'label-email': 'Email <span class="required">*</span>',
+    'label-location': 'Location / City',
+    'label-profession': 'Profession',
+    'label-church': 'Church / Community Affiliation',
+    'label-category': 'Membership Category <span class="required">*</span>',
+    'label-referral': 'Referral Code <span style="font-weight:400;color:var(--gray-400);font-size:0.72rem;">(optional)</span>',
+    'label-contrib': 'I\'d like to make a membership contribution',
+    'label-amount': 'Amount (HTG)',
+    'btn-submit': '\u{1F91D} Submit Application',
+    'err-name': 'Please enter your full name.',
+    'err-phone': 'Please enter your phone number.',
+    'err-email': 'Please enter a valid email address.',
+    'err-category': 'Please choose a category.',
+    'opt-select': '-- Select --',
+    'opt-regular': 'Regular Member',
+    'opt-youth': 'Youth Member',
+    'opt-diaspora': 'Diaspora Member',
+    'opt-business': 'Business Partner',
+    'success-title': 'Welcome to the Shalom Family!',
+    'success-msg': 'Thank you for your application. We\'ll contact you via WhatsApp to complete your registration.',
+    'success-btn': '\u{1F3E0} Back to Home',
+    'faq-tag': 'Frequently Asked Questions',
+    'faq-title': 'FAQ',
+    'faq-q1': 'Is membership free?',
+    'faq-a1': 'Yes, membership is completely free. Contributions are optional and voluntary. You can become a member without paying anything.',
+    'faq-q2': 'Can I join from abroad?',
+    'faq-a2': 'Yes, we welcome diaspora members from all around the world. Select the "Diaspora Member" category in the form.',
+    'faq-q3': 'What are the member benefits?',
+    'faq-a3': 'Members gain access to community, spiritual growth (services, Bible study, prayer), HaitiBiznis business network, priority participation in agriculture projects, exclusive events, and mentorship from church leadership.'
+  }
+};
+
+function setLang(lang) {
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) {
+      btns[i].classList.add('active');
+    }
+  }
+  localStorage.setItem('shalom-lang', lang);
+
+  // Apply translations
+  var t = translations[lang];
+  if (!t) return;
+
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      els[i].innerHTML = t[key];
+    }
+  }
+}
+
+/* Restore saved lang */
+var savedLang = localStorage.getItem('shalom-lang');
+if (savedLang) {
+  setLang(savedLang);
+} else {
+  setLang('kr');
+}
+</script>
+</body>
+</html>

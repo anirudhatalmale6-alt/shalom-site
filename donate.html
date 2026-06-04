@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fè yon Don — Shalom Tabernacle de Gloire</title>
+<meta name="description" content="Fè yon don pou sipòte vizyon Shalom Tabernacle de Gloire. Bati lekòl, bay manje, kreye opòtinite.">
+<meta property="og:title" content="Fè yon Don — Shalom Tabernacle de Gloire">
+<meta property="og:description" content="Kontribisyon ou ede bati lekòl, sipòte pwojè agrikilti, ak bay fanmi yo espwa.">
+<meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+
+/* Mobile menu */
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+}
+
+/* ===== HERO ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 60%, #001847 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  border-radius: 30% 70% 60% 40% / 50% 30% 70% 50%;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); background: rgba(212,168,67,0.12); border: 1px solid rgba(212,168,67,0.25); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 0; line-height: 1.7; }
+
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+
+/* ===== DONATION FORM SECTION ===== */
+.donate-section { padding: 56px 20px; max-width: 680px; margin: 0 auto; }
+.donate-section .section-tag { text-align: center; }
+.donate-section .section-title { text-align: center; }
+.donate-section .section-desc { text-align: center; margin: 0 auto 32px; }
+
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+.form-label .required { color: #E53E3E; margin-left: 2px; }
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0,61,165,0.1);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--gray-300); }
+.form-textarea { resize: vertical; min-height: 80px; }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238D95A8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+/* Amount selector */
+.amount-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+.amount-btn {
+  padding: 14px 10px;
+  border-radius: 12px;
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s;
+  position: relative;
+}
+.amount-btn:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,61,165,0.08); }
+.amount-btn.selected { border-color: var(--gold); background: var(--gold-light); }
+.amount-btn .amount-value { font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600; color: var(--gray-800); display: block; }
+.amount-btn .amount-tier { font-size: 0.72rem; color: var(--gray-400); margin-top: 2px; display: block; }
+.amount-btn.selected .amount-value { color: var(--gold-dark); }
+.amount-btn.selected .amount-tier { color: var(--gold-dark); }
+
+@media (min-width: 500px) { .amount-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.custom-amount-wrap { position: relative; }
+.custom-amount-wrap .currency-prefix {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  pointer-events: none;
+}
+.custom-amount-wrap .form-input { padding-left: 56px; }
+
+/* Radio buttons */
+.radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
+.radio-option {
+  flex: 1;
+  min-width: 140px;
+  position: relative;
+}
+.radio-option input { position: absolute; opacity: 0; pointer-events: none; }
+.radio-option label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: all 0.2s;
+}
+.radio-option label::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-300);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.radio-option input:checked + label {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  color: var(--blue);
+}
+.radio-option input:checked + label::before {
+  border-color: var(--blue);
+  background: var(--blue);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+/* Submit button */
+.btn-submit {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.25s;
+  border: 2px solid var(--gold);
+  background: var(--gold);
+  color: #fff;
+  margin-top: 8px;
+}
+.btn-submit:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212,168,67,0.35);
+}
+
+/* Success message */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+  border-radius: 16px;
+  background: var(--green-light);
+  border: 1px solid rgba(45,139,78,0.2);
+}
+.success-message.show { display: block; }
+.success-icon { font-size: 3rem; margin-bottom: 16px; }
+.success-message h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.success-message p {
+  font-size: 0.92rem;
+  color: var(--gray-500);
+  max-width: 400px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+/* ===== IMPACT SECTION ===== */
+.impact-section { background: var(--gray-50); padding: 56px 20px; }
+.impact-inner { max-width: 1000px; margin: 0 auto; }
+.impact-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+.impact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  transition: all 0.25s;
+}
+.impact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.impact-amount {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  background: var(--gold-light);
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  min-width: 100px;
+  text-align: center;
+}
+.impact-icon { font-size: 1.4rem; flex-shrink: 0; }
+.impact-text { font-size: 0.88rem; font-weight: 500; color: var(--gray-600); }
+
+@media (min-width: 640px) { .impact-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ===== TRUST BADGES ===== */
+.trust-section { padding: 40px 20px 56px; }
+.trust-inner { max-width: 1000px; margin: 0 auto; }
+.trust-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+}
+.trust-badge-icon { font-size: 1.3rem; }
+.trust-badge-text { font-size: 0.82rem; font-weight: 600; color: var(--gray-800); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Akèy</a>
+      <a href="about.html">Sou Nou</a>
+      <a href="donate.html" class="active">Don</a>
+      <a href="membership.html">Manm</a>
+      <a href="agriculture.html">Agrikilti</a>
+      <a href="opportunities.html">Opòtinite</a>
+      <a href="events.html">Evènman</a>
+      <a href="contact.html">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#10005;</button>
+    <a href="index.html">&#127968; Akèy</a>
+    <a href="about.html">&#128214; Sou Nou</a>
+    <a href="donate.html">&#128155; Fè yon Don</a>
+    <a href="membership.html">&#129309; Vin Manm</a>
+    <a href="agriculture.html">&#127806; Pwojè Agrikilti</a>
+    <a href="opportunities.html">&#128640; Opòtinite</a>
+    <a href="events.html">&#128197; Evènman</a>
+    <a href="contact.html">&#128172; Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge" data-i18n="hero-badge">FONDS VISION SHALOM</div>
+  <h1 data-i18n="hero-title">Fonds Vision <em>Shalom</em></h1>
+  <p class="hero-sub" data-i18n="hero-sub">Don ou ede bati lekòl, bay fanmi yo manje, epi kreye opòtinite pou tout moun.</p>
+</section>
+
+<!-- DONATION FORM -->
+<div class="donate-section reveal" id="donateFormWrap">
+  <div class="section-tag" data-i18n="form-tag">Fè yon Don</div>
+  <h2 class="section-title" data-i18n="form-title">Sipòte Vizyon An</h2>
+  <p class="section-desc" data-i18n="form-desc">Chak goud konte. Chwazi montan ou epi ede nou bati yon pi bon Ayiti.</p>
+
+  <form id="donationForm" onsubmit="return handleDonation(event)">
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-name">Non Konplè <span class="required">*</span></label>
+      <input type="text" class="form-input" id="fullName" name="fullName" required placeholder="Jean Baptiste Pierre">
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-phone">Telefòn <span class="required">*</span></label>
+      <input type="tel" class="form-input" id="phone" name="phone" required value="+509 " placeholder="+509 ">
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-email">Imèl <span class="required">*</span></label>
+      <input type="email" class="form-input" id="email" name="email" required placeholder="imel@egzanp.com">
+    </div>
+
+    <!-- Donation Amount -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-amount">Montan Don <span class="required">*</span></label>
+      <div class="amount-grid">
+        <button type="button" class="amount-btn" data-amount="1000" onclick="selectAmount(this, 1000)">
+          <span class="amount-value">1,000 HTG</span>
+          <span class="amount-tier">Zanmi</span>
+        </button>
+        <button type="button" class="amount-btn" data-amount="5000" onclick="selectAmount(this, 5000)">
+          <span class="amount-value">5,000 HTG</span>
+          <span class="amount-tier">Patnè</span>
+        </button>
+        <button type="button" class="amount-btn" data-amount="25000" onclick="selectAmount(this, 25000)">
+          <span class="amount-value">25,000 HTG</span>
+          <span class="amount-tier">Chanpyon</span>
+        </button>
+        <button type="button" class="amount-btn" data-amount="100000" onclick="selectAmount(this, 100000)">
+          <span class="amount-value">100,000 HTG</span>
+          <span class="amount-tier">Vizyonè</span>
+        </button>
+      </div>
+      <div class="custom-amount-wrap">
+        <span class="currency-prefix">HTG</span>
+        <input type="number" class="form-input" id="customAmount" name="customAmount" min="1" placeholder="Lòt montan..." oninput="clearAmountSelection()" data-i18n-placeholder="custom-amount-placeholder">
+      </div>
+      <input type="hidden" id="selectedAmount" name="selectedAmount" value="">
+    </div>
+
+    <!-- Donation Type -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-type">Tip Don <span class="required">*</span></label>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" id="typeOnce" name="donationType" value="one-time" checked>
+          <label for="typeOnce" data-i18n="type-once">Yon sèl fwa</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="typeMonthly" name="donationType" value="monthly">
+          <label for="typeMonthly" data-i18n="type-monthly">Chak mwa</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign / Project -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-campaign">Kanpay / Pwojè</label>
+      <select class="form-select" id="campaign" name="campaign">
+        <option value="general" data-i18n="campaign-general">Fon Jeneral</option>
+        <option value="agriculture" data-i18n="campaign-agri">Pwojè Agrikilti</option>
+        <option value="education" data-i18n="campaign-edu">Edikasyon</option>
+        <option value="community" data-i18n="campaign-community">Devlopman Kominotè</option>
+      </select>
+    </div>
+
+    <!-- Notes -->
+    <div class="form-group">
+      <label class="form-label" data-i18n="label-notes">Nòt (opsyonèl)</label>
+      <textarea class="form-textarea" id="notes" name="notes" placeholder="Yon mesaj espesyal oswa enstriksyon..." data-i18n-placeholder="notes-placeholder"></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn-submit" data-i18n="btn-submit">&#128155; Konplete Don An</button>
+  </form>
+</div>
+
+<!-- SUCCESS MESSAGE -->
+<div class="donate-section" id="successWrap">
+  <div class="success-message" id="successMessage">
+    <div class="success-icon">&#9989;</div>
+    <h3 data-i18n="success-title">Mèsi pou jenerozite ou!</h3>
+    <p data-i18n="success-text">Ou pral resevwa yon konfimasyon sou WhatsApp. Bondye beni ou pou sipò ou bay kominote a.</p>
+    <a href="index.html" class="btn btn-blue" data-i18n="success-btn">&#127968; Retounen Akèy</a>
+  </div>
+</div>
+
+<!-- IMPACT SECTION -->
+<section class="impact-section reveal">
+  <div class="impact-inner">
+    <div class="section-tag" data-i18n="impact-tag">Enpak Ou</div>
+    <h2 class="section-title" data-i18n="impact-title">Kisa Don Ou Fè</h2>
+    <p class="section-desc" data-i18n="impact-desc">Chak kontribisyon gen yon enpak dirèk sou lavi moun nan kominote nou an.</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-amount">1,000 HTG</div>
+        <div class="impact-icon">&#128218;</div>
+        <div class="impact-text" data-i18n="impact-1">Founiti lekòl pou 1 timoun</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">5,000 HTG</div>
+        <div class="impact-icon">&#127793;</div>
+        <div class="impact-text" data-i18n="impact-2">Grenn pou yon fanmi ki fè jaden</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">25,000 HTG</div>
+        <div class="impact-icon">&#127858;</div>
+        <div class="impact-text" data-i18n="impact-3">Yon mwa manje pou kominote a</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">100,000 HTG</div>
+        <div class="impact-icon">&#128296;</div>
+        <div class="impact-text" data-i18n="impact-4">Ekipman agrikilti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="trust-section reveal">
+  <div class="trust-inner">
+    <div class="trust-grid">
+      <div class="trust-badge">
+        <div class="trust-badge-icon">&#128274;</div>
+        <div class="trust-badge-text" data-i18n="trust-secure">Sekirize</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">&#128203;</div>
+        <div class="trust-badge-text" data-i18n="trust-tax">Dediktib nan taks</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">&#128154;</div>
+        <div class="trust-badge-text" data-i18n="trust-100">100% ale nan pwojè yo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com">HaitiBiznis</a>
+        <a href="https://myplopplop.com">MyPlopPlop</a>
+        <a href="https://msouwout.com">MsouWout</a>
+        <a href="https://48hoursready.com">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">&#128172;</a>
+
+<script>
+/* ===== Scroll reveal ===== */
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      reveals[i].classList.add('visible');
+    }
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+/* ===== Amount selection ===== */
+var selectedAmountValue = 0;
+
+function selectAmount(btn, amount) {
+  var btns = document.querySelectorAll('.amount-btn');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('selected');
+  }
+  btn.classList.add('selected');
+  selectedAmountValue = amount;
+  document.getElementById('selectedAmount').value = amount;
+  document.getElementById('customAmount').value = '';
+}
+
+function clearAmountSelection() {
+  var btns = document.querySelectorAll('.amount-btn');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('selected');
+  }
+  selectedAmountValue = 0;
+  document.getElementById('selectedAmount').value = '';
+}
+
+/* ===== Form submission ===== */
+function handleDonation(e) {
+  e.preventDefault();
+
+  var customVal = document.getElementById('customAmount').value;
+  var presetVal = document.getElementById('selectedAmount').value;
+  var finalAmount = customVal ? parseInt(customVal) : (presetVal ? parseInt(presetVal) : 0);
+
+  if (!finalAmount || finalAmount <= 0) {
+    alert(currentLang === 'en' ? 'Please select or enter a donation amount.' :
+          currentLang === 'fr' ? 'Veuillez choisir ou entrer un montant.' :
+          'Tanpri chwazi oswa antre yon montan don.');
+    return false;
+  }
+
+  var data = {
+    name: document.getElementById('fullName').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    amount: finalAmount,
+    type: document.querySelector('input[name="donationType"]:checked').value,
+    campaign: document.getElementById('campaign').value,
+    notes: document.getElementById('notes').value
+  };
+
+  console.log('Donation data:', data);
+
+  /* Hide form, show success */
+  document.getElementById('donateFormWrap').style.display = 'none';
+  var successMsg = document.getElementById('successMessage');
+  successMsg.classList.add('show');
+
+  /* Scroll to success */
+  document.getElementById('successWrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  return false;
+}
+
+/* ===== Language toggle with i18n ===== */
+var currentLang = 'kr';
+
+var translations = {
+  kr: {
+    'hero-badge': 'FONDS VISION SHALOM',
+    'hero-title': 'Fonds Vision <em>Shalom</em>',
+    'hero-sub': 'Don ou ede bati lekòl, bay fanmi yo manje, epi kreye opòtinite pou tout moun.',
+    'form-tag': 'Fè yon Don',
+    'form-title': 'Sipòte Vizyon An',
+    'form-desc': 'Chak goud konte. Chwazi montan ou epi ede nou bati yon pi bon Ayiti.',
+    'label-name': 'Non Konplè <span class="required">*</span>',
+    'label-phone': 'Telefòn <span class="required">*</span>',
+    'label-email': 'Imèl <span class="required">*</span>',
+    'label-amount': 'Montan Don <span class="required">*</span>',
+    'label-type': 'Tip Don <span class="required">*</span>',
+    'type-once': 'Yon sèl fwa',
+    'type-monthly': 'Chak mwa',
+    'label-campaign': 'Kanpay / Pwojè',
+    'campaign-general': 'Fon Jeneral',
+    'campaign-agri': 'Pwojè Agrikilti',
+    'campaign-edu': 'Edikasyon',
+    'campaign-community': 'Devlopman Kominotè',
+    'label-notes': 'Nòt (opsyonèl)',
+    'btn-submit': '\u{1F49B} Konplete Don An',
+    'success-title': 'Mèsi pou jenerozite ou!',
+    'success-text': 'Ou pral resevwa yon konfimasyon sou WhatsApp. Bondye beni ou pou sipò ou bay kominote a.',
+    'success-btn': '\u{1F3E0} Retounen Akèy',
+    'impact-tag': 'Enpak Ou',
+    'impact-title': 'Kisa Don Ou Fè',
+    'impact-desc': 'Chak kontribisyon gen yon enpak dirèk sou lavi moun nan kominote nou an.',
+    'impact-1': 'Founiti lekòl pou 1 timoun',
+    'impact-2': 'Grenn pou yon fanmi ki fè jaden',
+    'impact-3': 'Yon mwa manje pou kominote a',
+    'impact-4': 'Ekipman agrikilti',
+    'trust-secure': 'Sekirize',
+    'trust-tax': 'Dediktib nan taks',
+    'trust-100': '100% ale nan pwojè yo',
+    'custom-amount-placeholder': 'Lòt montan...',
+    'notes-placeholder': 'Yon mesaj espesyal oswa enstriksyon...'
+  },
+  fr: {
+    'hero-badge': 'FONDS VISION SHALOM',
+    'hero-title': 'Fonds Vision <em>Shalom</em>',
+    'hero-sub': 'Votre don aide à construire des écoles, nourrir des familles et créer des opportunités.',
+    'form-tag': 'Faire un Don',
+    'form-title': 'Soutenez la Vision',
+    'form-desc': 'Chaque gourde compte. Choisissez votre montant et aidez-nous à construire un meilleur Haïti.',
+    'label-name': 'Nom Complet <span class="required">*</span>',
+    'label-phone': 'Téléphone <span class="required">*</span>',
+    'label-email': 'Email <span class="required">*</span>',
+    'label-amount': 'Montant du Don <span class="required">*</span>',
+    'label-type': 'Type de Don <span class="required">*</span>',
+    'type-once': 'Ponctuel',
+    'type-monthly': 'Mensuel',
+    'label-campaign': 'Campagne / Projet',
+    'campaign-general': 'Fonds Général',
+    'campaign-agri': 'Projet Agriculture',
+    'campaign-edu': 'Éducation',
+    'campaign-community': 'Développement Communautaire',
+    'label-notes': 'Notes (optionnel)',
+    'btn-submit': '\u{1F49B} Compléter le Don',
+    'success-title': 'Merci pour votre générosité !',
+    'success-text': 'Vous recevrez une confirmation par WhatsApp. Que Dieu vous bénisse pour votre soutien.',
+    'success-btn': '\u{1F3E0} Retour à l’Accueil',
+    'impact-tag': 'Votre Impact',
+    'impact-title': 'Ce que fait votre don',
+    'impact-desc': 'Chaque contribution a un impact direct sur la vie des membres de notre communauté.',
+    'impact-1': 'Fournitures scolaires pour 1 enfant',
+    'impact-2': 'Semences pour une famille agricole',
+    'impact-3': 'Un mois de repas communautaires',
+    'impact-4': 'Équipement agricole',
+    'trust-secure': 'Sécurisé',
+    'trust-tax': 'Déductible d’impôts',
+    'trust-100': '100% va aux projets',
+    'custom-amount-placeholder': 'Autre montant...',
+    'notes-placeholder': 'Un message spécial ou des instructions...'
+  },
+  en: {
+    'hero-badge': 'SHALOM VISION FUND',
+    'hero-title': 'Shalom Vision <em>Fund</em>',
+    'hero-sub': 'Your donation builds schools, feeds families, and creates opportunity.',
+    'form-tag': 'Make a Donation',
+    'form-title': 'Support the Vision',
+    'form-desc': 'Every gourde counts. Choose your amount and help us build a better Haiti.',
+    'label-name': 'Full Name <span class="required">*</span>',
+    'label-phone': 'Phone <span class="required">*</span>',
+    'label-email': 'Email <span class="required">*</span>',
+    'label-amount': 'Donation Amount <span class="required">*</span>',
+    'label-type': 'Donation Type <span class="required">*</span>',
+    'type-once': 'One-time',
+    'type-monthly': 'Monthly recurring',
+    'label-campaign': 'Campaign / Project',
+    'campaign-general': 'General Fund',
+    'campaign-agri': 'Agriculture Project',
+    'campaign-edu': 'Education',
+    'campaign-community': 'Community Development',
+    'label-notes': 'Notes (optional)',
+    'btn-submit': '\u{1F49B} Complete Donation',
+    'success-title': 'Thank you for your generous donation!',
+    'success-text': 'You’ll receive a confirmation via WhatsApp. God bless you for supporting the community.',
+    'success-btn': '\u{1F3E0} Back to Home',
+    'impact-tag': 'Your Impact',
+    'impact-title': 'What Your Donation Does',
+    'impact-desc': 'Every contribution has a direct impact on the lives of people in our community.',
+    'impact-1': 'School supplies for 1 child',
+    'impact-2': 'Seeds for a farming family',
+    'impact-3': 'One month community meals',
+    'impact-4': 'Agriculture equipment',
+    'trust-secure': 'Secure',
+    'trust-tax': 'Tax-deductible',
+    'trust-100': '100% goes to projects',
+    'custom-amount-placeholder': 'Custom amount...',
+    'notes-placeholder': 'A special message or instructions...'
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) {
+      btns[i].classList.add('active');
+    }
+  }
+  localStorage.setItem('shalom-lang', lang);
+
+  /* Apply translations */
+  var t = translations[lang];
+  if (!t) return;
+
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var j = 0; j < els.length; j++) {
+    var key = els[j].getAttribute('data-i18n');
+    if (t[key]) {
+      els[j].innerHTML = t[key];
+    }
+  }
+
+  /* Placeholders */
+  var customInput = document.getElementById('customAmount');
+  if (customInput && t['custom-amount-placeholder']) {
+    customInput.placeholder = t['custom-amount-placeholder'];
+  }
+  var notesInput = document.getElementById('notes');
+  if (notesInput && t['notes-placeholder']) {
+    notesInput.placeholder = t['notes-placeholder'];
+  }
+
+  /* Select options */
+  var options = document.querySelectorAll('[data-i18n]');
+  for (var k = 0; k < options.length; k++) {
+    var optKey = options[k].getAttribute('data-i18n');
+    if (t[optKey] && options[k].tagName === 'OPTION') {
+      options[k].textContent = t[optKey];
+    }
+  }
+}
+
+/* Restore saved lang */
+var savedLang = localStorage.getItem('shalom-lang');
+if (savedLang) {
+  setLang(savedLang);
+} else {
+  setLang('kr');
+}
+</script>
+</body>
+</html>

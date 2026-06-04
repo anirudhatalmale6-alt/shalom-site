@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Evènman — Shalom Tabernacle de Gloire</title>
+<meta name="description" content="Evènman Shalom Tabernacle de Gloire — sèvis, konferans, ak aktivite kominotè.">
+<meta property="og:title" content="Evènman — Shalom Tabernacle de Gloire">
+<meta property="og:description" content="Sèvis, konferans, ak aktivite kominotè.">
+<meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+@media (min-width: 900px) { .nav-links { display: flex; } .hamburger { display: none; } }
+
+/* ===== HERO ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 60%, #001847 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%); border-radius: 50%; }
+.hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 320px; height: 320px; background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.04) 0%, transparent 60%); border-radius: 30% 70% 60% 40% / 50% 30% 70% 50%; }
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); background: rgba(212,168,67,0.12); border: 1px solid rgba(212,168,67,0.25); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: #246F3F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,78,0.25); }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== FILTER TABS ===== */
+.filter-tabs { display: flex; gap: 6px; margin: 24px 0; flex-wrap: wrap; }
+.filter-tab { padding: 8px 18px; border-radius: 8px; border: 1px solid var(--gray-200); background: var(--white); font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; color: var(--gray-500); cursor: pointer; transition: all 0.2s; }
+.filter-tab:hover { border-color: var(--blue); color: var(--blue); }
+.filter-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* ===== FEATURED EVENT ===== */
+.featured-event { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%); border-radius: 20px; padding: 32px 28px; color: #fff; margin-bottom: 28px; position: relative; overflow: hidden; }
+.featured-event::before { content: ''; position: absolute; top: -30%; right: -15%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,168,67,0.1) 0%, transparent 70%); border-radius: 50%; }
+.featured-event > * { position: relative; z-index: 1; }
+.featured-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; color: var(--gold); background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.3); padding: 4px 12px; border-radius: 6px; margin-bottom: 14px; }
+.featured-event h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+.featured-event-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+.featured-event-meta span { display: flex; align-items: center; gap: 5px; }
+.featured-event p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; max-width: 600px; }
+.featured-event .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ===== EVENT CARDS ===== */
+.event-list { display: grid; gap: 12px; }
+.event-card { display: flex; gap: 16px; padding: 20px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); align-items: flex-start; transition: all 0.25s; }
+.event-card:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,61,165,0.06); }
+.event-card.past { opacity: 0.6; }
+.event-card.past:hover { opacity: 0.8; }
+.event-date { text-align: center; min-width: 56px; padding: 8px; border-radius: 10px; background: var(--blue-light); }
+.event-date .month { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+.event-date .day { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.1; }
+.event-info { flex: 1; }
+.event-info h4 { font-size: 0.92rem; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+.event-info .event-desc { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 6px; }
+.event-info .event-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.75rem; color: var(--gray-400); }
+.event-info .event-meta span { display: flex; align-items: center; gap: 4px; }
+.event-status { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 5px; white-space: nowrap; }
+.event-status.upcoming { background: var(--green-light); color: var(--green); }
+.event-status.past-tag { background: var(--gray-100); color: var(--gray-400); }
+
+/* ===== CTA BANNER ===== */
+.cta-section { background: var(--gray-50); padding: 56px 20px; margin: 0; max-width: none; text-align: center; }
+.cta-inner { max-width: 600px; margin: 0 auto; }
+.cta-inner .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Akèy</a>
+      <a href="about.html">Sou Nou</a>
+      <a href="donate.html">Don</a>
+      <a href="membership.html">Manm</a>
+      <a href="agriculture.html">Agrikilti</a>
+      <a href="opportunities.html">Opòtinite</a>
+      <a href="events.html" class="active">Evènman</a>
+      <a href="contact.html">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#10005;</button>
+    <a href="index.html">&#127968; Akèy</a>
+    <a href="about.html">&#128214; Sou Nou</a>
+    <a href="donate.html">&#128155; Fè yon Don</a>
+    <a href="membership.html">&#129309; Vin Manm</a>
+    <a href="agriculture.html">&#127806; Pwojè Agrikilti</a>
+    <a href="opportunities.html">&#128640; Opòtinite</a>
+    <a href="events.html">&#128197; Evènman</a>
+    <a href="contact.html">&#128172; Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">&#128197; EVÈNMAN</div>
+  <h1>Evènman <em>Shalom</em></h1>
+  <p class="hero-sub">Sèvis espesyal, konferans, fòmasyon, ak aktivite kominotè. Vin patisipe nan mouvman an!</p>
+</section>
+
+<!-- FEATURED EVENT -->
+<section class="section reveal">
+  <div class="featured-event">
+    <span class="featured-badge">&#11088; EVÈNMAN ESPESYAL</span>
+    <h2>Gran Konferans Lafwa &amp; Devlopman 2026</h2>
+    <div class="featured-event-meta">
+      <span>&#128197; 20 Jiyè 2026</span>
+      <span>&#128337; 9:00 AM - 5:00 PM</span>
+      <span>&#128205; Port-au-Prince, Ayiti</span>
+    </div>
+    <p>Yon jounen konplè konsantre sou lafwa, devlopman pèsonèl, antreprenarya, ak vizyon pou Ayiti. Oratè envite, atelye pratik, ak netwòking. Pa manke evènman sa a!</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/50946859702?text=Mwen%20vle%20enskri%20pou%20Gran%20Konferans%20Lafwa%20%26%20Devlopman%202026" target="_blank" class="btn btn-gold">&#128221; Enskri Kounye a</a>
+      <a href="contact.html" class="btn btn-outline-white">&#128172; Plis Enfòmasyon</a>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER + EVENT LIST -->
+<section class="section reveal" style="padding-top: 0;">
+  <div class="section-tag">Tout Evènman</div>
+  <h2 class="section-title">Kalandriye Evènman yo</h2>
+  <p class="section-desc">Gade tout evènman ki planifye ak sa ki deja pase.</p>
+
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterEvents('all')">Tout</button>
+    <button class="filter-tab" onclick="filterEvents('upcoming')">K ap Vini</button>
+    <button class="filter-tab" onclick="filterEvents('past')">Pase</button>
+  </div>
+
+  <div class="event-list" id="eventList">
+
+    <!-- Event 1: Upcoming -->
+    <div class="event-card" data-type="upcoming">
+      <div class="event-date">
+        <div class="month">JEN</div>
+        <div class="day">15</div>
+      </div>
+      <div class="event-info">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <h4>Sèvis Espesyal Dimanch</h4>
+          <span class="event-status upcoming">K AP VINI</span>
+        </div>
+        <p class="event-desc">Yon sèvis espesyal ak adorasyon, prediksyon, ak priyè pou kominote a. Tout moun envite vini ak fanmi yo.</p>
+        <div class="event-meta">
+          <span>&#128337; 10:00 AM - 1:00 PM</span>
+          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 2: Upcoming -->
+    <div class="event-card" data-type="upcoming">
+      <div class="event-date">
+        <div class="month">JEN</div>
+        <div class="day">22</div>
+      </div>
+      <div class="event-info">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <h4>Konferans Biznis &amp; Lafwa</h4>
+          <span class="event-status upcoming">K AP VINI</span>
+        </div>
+        <p class="event-desc">Yon apremidi konsantre sou antreprenarya kretyen. Aprann kijan pou kòmanse yon biznis ak prensip biblik. Oratè envite ak panel diskisyon.</p>
+        <div class="event-meta">
+          <span>&#128337; 2:00 PM - 6:00 PM</span>
+          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 3: Upcoming -->
+    <div class="event-card" data-type="upcoming">
+      <div class="event-date">
+        <div class="month">JIY</div>
+        <div class="day">06</div>
+      </div>
+      <div class="event-info">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <h4>Lansman Pwojè Agrikilti Faz 1</h4>
+          <span class="event-status upcoming">K AP VINI</span>
+        </div>
+        <p class="event-desc">Seremoni ofisyèl pou kòmanse Faz 1 pwojè agrikilti a. Benediksyon tè, prezantasyon plan, ak envitasyon pou patnè yo.</p>
+        <div class="event-meta">
+          <span>&#128337; 9:00 AM - 12:00 PM</span>
+          <span>&#128205; Sit Agrikòl Shalom</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 4: Past -->
+    <div class="event-card past" data-type="past">
+      <div class="event-date">
+        <div class="month">ME</div>
+        <div class="day">18</div>
+      </div>
+      <div class="event-info">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <h4>Reyinyon Anyèl Manm yo</h4>
+          <span class="event-status past-tag">PASE</span>
+        </div>
+        <p class="event-desc">Reyinyon anyèl kote manm yo te resevwa rapò sou pwogrè òganizasyon an, plan pou ane a, ak eleksyon nouvo komite.</p>
+        <div class="event-meta">
+          <span>&#128337; 3:00 PM - 6:00 PM</span>
+          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 5: Past -->
+    <div class="event-card past" data-type="past">
+      <div class="event-date">
+        <div class="month">AVR</div>
+        <div class="day">20</div>
+      </div>
+      <div class="event-info">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <h4>Pak Espesyal &amp; Selebrayon</h4>
+          <span class="event-status past-tag">PASE</span>
+        </div>
+        <p class="event-desc">Sèvis espesyal pou selebre Pak. Adorasyon, mesaj espesyal, ak moman kominotè pou tout fanmi.</p>
+        <div class="event-meta">
+          <span>&#128337; 10:00 AM - 2:00 PM</span>
+          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <div class="section-tag" style="text-align:center;">Patisipe</div>
+    <h2 class="section-title" style="text-align:center;">Pa Rate Pwochen Evènman an</h2>
+    <p class="section-desc" style="margin:0 auto;text-align:center;">Enskri pou yon evènman oswa kontakte nou sou WhatsApp pou plis enfòmasyon.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/50946859702?text=Mwen%20vle%20enskri%20pou%20yon%20evènman%20Shalom" target="_blank" class="btn btn-blue">&#128221; Enskri pou yon Evènman</a>
+      <a href="https://wa.me/50946859702" target="_blank" class="btn btn-green">&#128172; Kontakte Nou sou WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com">HaitiBiznis</a>
+        <a href="https://myplopplop.com">MyPlopPlop</a>
+        <a href="https://msouwout.com">MsouWout</a>
+        <a href="https://48hoursready.com">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">&#128172;</a>
+
+<script>
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) reveals[i].classList.add('visible');
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+function setLang(lang) {
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) btns[i].classList.add('active');
+  }
+  localStorage.setItem('shalom-lang', lang);
+}
+var savedLang = localStorage.getItem('shalom-lang');
+if (savedLang) setLang(savedLang);
+
+/* Filter Events */
+function filterEvents(type) {
+  var tabs = document.querySelectorAll('.filter-tab');
+  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+  event.target.classList.add('active');
+
+  var cards = document.querySelectorAll('.event-card');
+  for (var i = 0; i < cards.length; i++) {
+    var cardType = cards[i].getAttribute('data-type');
+    if (type === 'all') {
+      cards[i].style.display = 'flex';
+    } else if (cardType === type) {
+      cards[i].style.display = 'flex';
+    } else {
+      cards[i].style.display = 'none';
+    }
+  }
+}
+</script>
+</body>
+</html>

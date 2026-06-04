@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pwojè Agrikilti — Shalom Tabernacle de Gloire</title>
+<meta name="description" content="Pwojè agrikilti Shalom Tabernacle de Gloire — bati endepandans alimantè pou Ayiti atravè agrikilti dirab.">
+<meta property="og:title" content="Pwojè Agrikilti — Shalom Tabernacle de Gloire">
+<meta property="og:description" content="Bati endepandans alimantè pou Ayiti atravè agrikilti dirab.">
+<meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-dark: #246F3F;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+@media (min-width: 900px) { .nav-links { display: flex; } .hamburger { display: none; } }
+
+/* ===== HERO (GREEN ACCENT) ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--green) 0%, var(--green-dark) 60%, #1A5C33 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  border-radius: 30% 70% 60% 40% / 50% 30% 70% 50%;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.3); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 28px; line-height: 1.7; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,78,0.25); }
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== OVERVIEW ===== */
+.overview-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.8; max-width: 720px; margin-top: 16px; }
+
+/* ===== PHASE 1 PILOT ===== */
+.phase-section { background: var(--green-light); padding: 56px 20px; }
+.phase-inner { max-width: 1000px; margin: 0 auto; }
+.phase-badge { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; background: rgba(45,139,78,0.12); display: inline-block; padding: 4px 14px; border-radius: 6px; margin-bottom: 14px; }
+.phase-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 24px; }
+.phase-card { padding: 22px 18px; border-radius: 14px; border: 1px solid rgba(45,139,78,0.15); background: var(--white); }
+.phase-card-icon { font-size: 1.4rem; margin-bottom: 8px; }
+.phase-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+.phase-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; }
+@media (min-width: 640px) { .phase-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ===== FUND BREAKDOWN ===== */
+.funds-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 24px; }
+.fund-card { padding: 24px 18px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); text-align: center; transition: all 0.25s; }
+.fund-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(45,139,78,0.1); border-color: var(--green); }
+.fund-percent { font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700; color: var(--green); line-height: 1; }
+.fund-label { font-size: 0.85rem; font-weight: 600; color: var(--gray-800); margin-top: 8px; }
+.fund-desc { font-size: 0.78rem; color: var(--gray-400); margin-top: 4px; }
+@media (min-width: 640px) { .funds-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* ===== PROGRESS BAR ===== */
+.fund-bar-wrap { margin-top: 28px; }
+.fund-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--gray-500); margin-bottom: 8px; }
+.fund-bar-label strong { color: var(--green); font-family: var(--font-mono); }
+.fund-bar { height: 12px; background: var(--gray-100); border-radius: 12px; overflow: hidden; }
+.fund-bar-fill { height: 100%; border-radius: 12px; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.fund-bar-fill.prep { width: 30%; background: var(--green); }
+.fund-bar-fill.seeds { width: 25%; background: var(--gold); }
+.fund-bar-fill.labor { width: 25%; background: var(--blue); }
+.fund-bar-fill.infra { width: 20%; background: #E86B6B; }
+
+/* ===== IMPACT GOALS ===== */
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+.impact-card { text-align: center; padding: 28px 16px; border-radius: 16px; background: linear-gradient(160deg, var(--green) 0%, var(--green-dark) 100%); color: #fff; }
+.impact-number { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; line-height: 1; }
+.impact-label { font-size: 0.82rem; color: rgba(255,255,255,0.8); margin-top: 6px; }
+@media (max-width: 639px) { .impact-grid { grid-template-columns: 1fr; } }
+
+/* ===== GALLERY ===== */
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 24px; }
+.gallery-card { border-radius: 14px; overflow: hidden; background: var(--gray-100); border: 1px solid var(--gray-200); }
+.gallery-placeholder { height: 180px; background: var(--gray-200); display: flex; align-items: center; justify-content: center; color: var(--gray-400); font-size: 2.5rem; }
+.gallery-caption { padding: 12px 14px; font-size: 0.82rem; color: var(--gray-500); font-weight: 500; }
+@media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== CTA BANNER ===== */
+.cta-banner { background: linear-gradient(160deg, var(--green) 0%, var(--green-dark) 100%); padding: 56px 20px; text-align: center; color: #fff; }
+.cta-banner .section-title { color: #fff; }
+.cta-banner .section-desc { color: rgba(255,255,255,0.7); margin: 0 auto 24px; }
+.cta-banner .hero-ctas { justify-content: center; }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Akèy</a>
+      <a href="about.html">Sou Nou</a>
+      <a href="donate.html">Don</a>
+      <a href="membership.html">Manm</a>
+      <a href="agriculture.html" class="active">Agrikilti</a>
+      <a href="opportunities.html">Opòtinite</a>
+      <a href="events.html">Evènman</a>
+      <a href="contact.html">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#10005;</button>
+    <a href="index.html">&#127968; Akèy</a>
+    <a href="about.html">&#128214; Sou Nou</a>
+    <a href="donate.html">&#128155; Fè yon Don</a>
+    <a href="membership.html">&#129309; Vin Manm</a>
+    <a href="agriculture.html">&#127806; Pwojè Agrikilti</a>
+    <a href="opportunities.html">&#128640; Opòtinite</a>
+    <a href="events.html">&#128197; Evènman</a>
+    <a href="contact.html">&#128172; Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">&#127806; PWOJÈ AGRIKILTI</div>
+  <h1>Bati Avni <em>Manje</em><br>pou Ayiti</h1>
+  <p class="hero-sub">Nou devlope tè pou plante manje, kreye djòb, ak bati endepandans alimantè pou kominote nou an.</p>
+  <div class="hero-ctas">
+    <a href="donate.html" class="btn btn-gold">&#128155; Sipòte Pwojè a</a>
+    <a href="#partner" class="btn btn-outline-white">&#129309; Vin yon Patnè Agrikòl</a>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section reveal">
+  <div class="section-tag">Prezantasyon Pwojè</div>
+  <h2 class="section-title">Istwa Tè a, Vizyon Manje a</h2>
+  <p class="overview-text">Ayiti gen yon tè rich ak fètil, men plizyè deseni degradasyon, deforestasyon, ak mank envestisman fè ke anpil kominote pa ka manje ase. Shalom Tabernacle de Gloire kwè ke solisyon an kòmanse nan tè a.</p>
+  <p class="overview-text" style="margin-top: 12px;">Pwojè agrikilti nou an se yon inisyativ konplè pou devlope tè, plante manje debaz, ak kreye yon sistèm alimantè dirab ki ka nouri fanmi jodi a epi bay jenerasyon k ap vini yo yon fondasyon solid. Nou pa jis plante — nou bati yon mouvman.</p>
+</section>
+
+<!-- PHASE 1 PILOT -->
+<section class="phase-section reveal">
+  <div class="phase-inner">
+    <span class="phase-badge">&#127793; Faz 1: Pilot</span>
+    <h2 class="section-title">Detay Faz 1</h2>
+    <p class="section-desc">Premye faz la konsantre sou prepare tè, plante premye rekòlt, ak mete enfrastrikti debaz an plas.</p>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-card-icon">&#127805;</div>
+        <h3>Sa N ap Plante</h3>
+        <p>Mayi, pwa, bannann, manyòk, legim varyete — manje debaz ki nouri fanmi ayisyen chak jou. Semans yo seleksyone pou klima lokal la.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-icon">&#128205;</div>
+        <h3>Ki Kote</h3>
+        <p>Tè nan zòn riral ki idantifye pou potansyèl agrikòl yo. Preparasyon tè ap kòmanse ak netwayaj, tès sòl, ak sistèm irigasyon debaz.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-icon">&#128197;</div>
+        <h3>Kalandriye</h3>
+        <p>Faz 1 ap dire 6-12 mwa. Preparasyon tè: mwa 1-2. Plantasyon: mwa 3-4. Premye rekòlt: mwa 6-8. Evalyasyon ak ekspansyon: mwa 9-12.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-icon">&#127919;</div>
+        <h3>Objektif Faz 1</h3>
+        <p>Pwouve ke modèl agrikòl la fonksyone, kreye premye djòb yo, nouri premye fanmi yo, epi prepare fondasyon pou Faz 2 ak ekspansyon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE OF FUNDS -->
+<section class="section reveal">
+  <div class="section-tag">Itilizasyon Fon</div>
+  <h2 class="section-title">Kijan Lajan an Itilize</h2>
+  <p class="section-desc">Chak goud kontribye dirèkteman nan devlopman pwojè a. Men distribisyon an:</p>
+  <div class="funds-grid">
+    <div class="fund-card">
+      <div class="fund-percent">30%</div>
+      <div class="fund-label">Preparasyon Tè</div>
+      <div class="fund-desc">Netwayaj, tès sòl, defrichaj, nivo tè</div>
+    </div>
+    <div class="fund-card">
+      <div class="fund-percent">25%</div>
+      <div class="fund-label">Semans &amp; Zouti</div>
+      <div class="fund-desc">Semans kalite, zouti agrikòl, pwodwi pou tè</div>
+    </div>
+    <div class="fund-card">
+      <div class="fund-percent">25%</div>
+      <div class="fund-label">Travayè</div>
+      <div class="fund-desc">Salè kiltivatè, fòmasyon, sipèvizyon</div>
+    </div>
+    <div class="fund-card">
+      <div class="fund-percent">20%</div>
+      <div class="fund-label">Enfrastrikti</div>
+      <div class="fund-desc">Irigasyon, depo, wout aksè</div>
+    </div>
+  </div>
+  <div class="fund-bar-wrap">
+    <div style="display:flex;height:14px;border-radius:10px;overflow:hidden;margin-top:20px;">
+      <div style="width:30%;background:var(--green);" title="Preparasyon Tè 30%"></div>
+      <div style="width:25%;background:var(--gold);" title="Semans & Zouti 25%"></div>
+      <div style="width:25%;background:var(--blue);" title="Travayè 25%"></div>
+      <div style="width:20%;background:#E86B6B;" title="Enfrastrikti 20%"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:0.75rem;color:var(--gray-400);">
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--green);margin-right:4px;"></span>Tè 30%</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--gold);margin-right:4px;"></span>Semans 25%</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blue);margin-right:4px;"></span>Travayè 25%</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#E86B6B;margin-right:4px;"></span>Enfrastrikti 20%</span>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT GOALS -->
+<section class="section reveal" style="background:var(--gray-50);margin:0;max-width:none;padding:56px 20px;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div class="section-tag">Enpak</div>
+    <h2 class="section-title">Objektif Enpak Nou</h2>
+    <p class="section-desc">Rezilta konkrè nou vize pou Faz 1 pwojè agrikilti a.</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-number">200+</div>
+        <div class="impact-label">Fanmi nouri</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">50+</div>
+        <div class="impact-label">Djòb kreye</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">10</div>
+        <div class="impact-label">Ekta tè kiltive</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section reveal">
+  <div class="section-tag">Galeri</div>
+  <h2 class="section-title">Foto Pwojè a</h2>
+  <p class="section-desc">Imaj yo pral disponib lè pwojè a kòmanse. Men apèsi:</p>
+  <div class="gallery-grid">
+    <div class="gallery-card">
+      <div class="gallery-placeholder">&#127806;</div>
+      <div class="gallery-caption">Preparasyon tè pou plantasyon</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-placeholder">&#127793;</div>
+      <div class="gallery-caption">Semans ak jèm ki ap grandi</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-placeholder">&#128104;&#8205;&#127806;</div>
+      <div class="gallery-caption">Kiltivatè nan travay</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-placeholder">&#128167;</div>
+      <div class="gallery-caption">Sistèm irigasyon</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-placeholder">&#127805;</div>
+      <div class="gallery-caption">Premye rekòlt mayi</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-placeholder">&#128666;</div>
+      <div class="gallery-caption">Distribisyon manje nan kominote a</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner reveal" id="partner">
+  <h2 class="section-title">Sipòte Pwojè Agrikilti a</h2>
+  <p class="section-desc">Chak kontribisyon ede nouri yon fanmi, kreye yon djòb, ak rapwoche Ayiti pi pre endepandans alimantè.</p>
+  <div class="hero-ctas">
+    <a href="donate.html" class="btn btn-gold">&#128155; Sipòte Pwojè a</a>
+    <a href="https://wa.me/50946859702?text=Mwen%20enterese%20vin%20yon%20patnè%20agrikòl%20Shalom" target="_blank" class="btn btn-outline-white">&#129309; Vin yon Patnè Agrikòl</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com">HaitiBiznis</a>
+        <a href="https://myplopplop.com">MyPlopPlop</a>
+        <a href="https://msouwout.com">MsouWout</a>
+        <a href="https://48hoursready.com">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">&#128172;</a>
+
+<script>
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) reveals[i].classList.add('visible');
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+function setLang(lang) {
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) btns[i].classList.add('active');
+  }
+  localStorage.setItem('shalom-lang', lang);
+}
+var savedLang = localStorage.getItem('shalom-lang');
+if (savedLang) setLang(savedLang);
+</script>
+</body>
+</html>

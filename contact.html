@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kontakte Nou — Shalom Tabernacle de Gloire</title>
+<meta name="description" content="Kontakte Shalom Tabernacle de Gloire Inc. — voye yon mesaj, rele nou, oswa ekri nou sou WhatsApp.">
+<meta property="og:title" content="Kontakte Nou — Shalom Tabernacle de Gloire">
+<meta property="og:description" content="Voye yon mesaj, rele nou, oswa ekri nou sou WhatsApp.">
+<meta property="og:image" content="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+@media (min-width: 900px) { .nav-links { display: flex; } .hamburger { display: none; } }
+
+/* ===== HERO ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 60%, #001847 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%); border-radius: 50%; }
+.hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 320px; height: 320px; background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.04) 0%, transparent 60%); border-radius: 30% 70% 60% 40% / 50% 30% 70% 50%; }
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); background: rgba(212,168,67,0.12); border: 1px solid rgba(212,168,67,0.25); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: #246F3F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,78,0.25); }
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== CONTACT LAYOUT ===== */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 28px; }
+@media (min-width: 768px) { .contact-grid { grid-template-columns: 1.2fr 0.8fr; } }
+
+/* ===== FORM ===== */
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--gray-600);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0,61,165,0.1);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%238D95A8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+.form-submit { width: 100%; padding: 14px 24px; background: var(--blue); color: #fff; border: none; border-radius: 10px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.25s; }
+.form-submit:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+
+/* Success message */
+.form-success { display: none; padding: 20px; border-radius: 12px; background: var(--green-light); border: 1px solid rgba(45,139,78,0.2); text-align: center; }
+.form-success.show { display: block; }
+.form-success-icon { font-size: 2rem; margin-bottom: 8px; }
+.form-success h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--green); margin-bottom: 4px; }
+.form-success p { font-size: 0.85rem; color: var(--gray-500); }
+
+/* ===== SIDEBAR ===== */
+.contact-card { padding: 24px; border-radius: 16px; border: 1px solid var(--gray-200); background: var(--white); margin-bottom: 16px; transition: all 0.25s; }
+.contact-card:hover { border-color: var(--blue); box-shadow: 0 8px 24px rgba(0,61,165,0.06); }
+.contact-card-icon { font-size: 1.6rem; margin-bottom: 10px; }
+.contact-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+.contact-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 12px; }
+.contact-card a.card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--blue); transition: color 0.2s; }
+.contact-card a.card-link:hover { color: var(--blue-dark); }
+
+.wa-contact-card { background: linear-gradient(160deg, #25D366 0%, #128C45 100%); border-color: transparent; color: #fff; }
+.wa-contact-card h3 { color: #fff; }
+.wa-contact-card p { color: rgba(255,255,255,0.8); }
+.wa-contact-card a.card-link { color: #fff; background: rgba(255,255,255,0.2); padding: 10px 18px; border-radius: 8px; font-size: 0.88rem; }
+.wa-contact-card a.card-link:hover { background: rgba(255,255,255,0.3); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Akèy</a>
+      <a href="about.html">Sou Nou</a>
+      <a href="donate.html">Don</a>
+      <a href="membership.html">Manm</a>
+      <a href="agriculture.html">Agrikilti</a>
+      <a href="opportunities.html">Opòtinite</a>
+      <a href="events.html">Evènman</a>
+      <a href="contact.html" class="active">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#10005;</button>
+    <a href="index.html">&#127968; Akèy</a>
+    <a href="about.html">&#128214; Sou Nou</a>
+    <a href="donate.html">&#128155; Fè yon Don</a>
+    <a href="membership.html">&#129309; Vin Manm</a>
+    <a href="agriculture.html">&#127806; Pwojè Agrikilti</a>
+    <a href="opportunities.html">&#128640; Opòtinite</a>
+    <a href="events.html">&#128197; Evènman</a>
+    <a href="contact.html">&#128172; Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">KONTAKTE NOU</div>
+  <h1>Pale avèk <em>Shalom</em></h1>
+  <p class="hero-sub">Nou la pou ou. Voye yon mesaj, rele nou, oswa ekri nou sou WhatsApp. Nou pral reponn ou rapidman.</p>
+</section>
+
+<!-- CONTACT FORM + SIDEBAR -->
+<section class="section reveal">
+  <div class="section-tag">Voye yon Mesaj</div>
+  <h2 class="section-title">Fòm Kontak</h2>
+  <p class="section-desc">Ranpli fòm sa a epi nou pral kontakte ou pi vit posib.</p>
+
+  <div class="contact-grid">
+    <!-- FORM -->
+    <div>
+      <form id="contactForm" onsubmit="return handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="name">Non Konplè *</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Antre non ou" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Nimewo Telefòn</label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+509 XXXX XXXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Imèl *</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="imel@egzanp.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Sijè *</label>
+          <select class="form-select" id="subject" name="subject" required>
+            <option value="" disabled selected>Chwazi yon sijè</option>
+            <option value="general">Jeneral</option>
+            <option value="donation">Don / Kontribisyon</option>
+            <option value="membership">Manm / Enskrisyon</option>
+            <option value="agriculture">Pwojè Agrikilti</option>
+            <option value="partnership">Patenarya</option>
+            <option value="other">Lòt</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Mesaj *</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Ekri mesaj ou isit..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">&#128228; Voye Mesaj</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">&#9989;</div>
+        <h3>Mesaj Voye!</h3>
+        <p>Mèsi pou mesaj ou. Ekip Shalom pral reponn ou nan 24-48 èdtan.</p>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="contact-card wa-contact-card">
+        <div class="contact-card-icon">&#128172;</div>
+        <h3>WhatsApp</h3>
+        <p>Pi bon fason pou pale avèk nou rapidman. Voye yon mesaj sou WhatsApp epi nou pral reponn nan kèk minit.</p>
+        <a href="https://wa.me/50946859702" target="_blank" class="card-link">&#128172; Ekri Nou sou WhatsApp</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">&#128222;</div>
+        <h3>Telefòn</h3>
+        <p>Rele nou dirèkteman pou kesyon ijan oswa pou pale ak yon manm ekip la.</p>
+        <a href="tel:+50946859702" class="card-link">+509 4685 9702 &#8594;</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">&#128205;</div>
+        <h3>Adrès</h3>
+        <p>Shalom Tabernacle de Gloire Inc.<br>Port-au-Prince, Ayiti<br><em style="color:var(--gray-400);font-size:0.8rem;">Adrès egzak pral disponib byento.</em></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">&#128337;</div>
+        <h3>Lè Ouvèti</h3>
+        <p>Lendi - Vandredi: 8:00 AM - 5:00 PM<br>Samdi: 9:00 AM - 1:00 PM<br>Dimanch: Sèvis yo sèlman</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com">HaitiBiznis</a>
+        <a href="https://myplopplop.com">MyPlopPlop</a>
+        <a href="https://msouwout.com">MsouWout</a>
+        <a href="https://48hoursready.com">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">&#128172;</a>
+
+<script>
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) reveals[i].classList.add('visible');
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+function setLang(lang) {
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) btns[i].classList.add('active');
+  }
+  localStorage.setItem('shalom-lang', lang);
+}
+var savedLang = localStorage.getItem('shalom-lang');
+if (savedLang) setLang(savedLang);
+
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('formSuccess');
+  form.style.display = 'none';
+  success.classList.add('show');
+  window.scrollTo({ top: success.offsetTop - 100, behavior: 'smooth' });
+  return false;
+}
+</script>
+</body>
+</html>
