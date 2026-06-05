@@ -177,13 +177,21 @@ a { text-decoration: none; color: inherit; }
 .agri-feat { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--gray-600); }
 .agri-feat::before { content: '🌱'; font-size: 0.9rem; }
 
-/* ===== OPPORTUNITIES ===== */
+/* ===== OPPORTUNITIES (HaitiBiznis style) ===== */
 .opp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
-.opp-card { padding: 20px 16px; border-radius: 14px; border: 1px solid var(--gray-200); background: var(--white); transition: all 0.25s; display: block; }
-.opp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-.opp-card-icon { font-size: 1.3rem; margin-bottom: 8px; }
-.opp-card-name { font-size: 0.85rem; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
-.opp-card-desc { font-size: 0.75rem; color: var(--gray-400); }
+.opp-card { padding: 16px 14px; border-radius: 14px; color: #fff; cursor: pointer; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: block; text-decoration: none; }
+.opp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+.opp-card-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.opp-card-name { font-size: 0.88rem; font-weight: 700; font-family: var(--font-display); color: #fff; margin-bottom: 4px; }
+.opp-card-desc { font-size: 0.72rem; color: rgba(255,255,255,0.85); line-height: 1.4; }
+.cc-flag { background: linear-gradient(160deg, var(--blue) 0%, #001A80 50%, #8B0A1E 100%); border: 1px solid rgba(210,16,52,0.3); }
+.cc-blue { background: linear-gradient(160deg, #1A4FD4 0%, var(--blue) 60%, var(--blue-dark) 100%); }
+.cc-red { background: linear-gradient(160deg, #E8303E 0%, #D21034 60%, #A00D28 100%); }
+.cc-green { background: linear-gradient(160deg, #2CA855 0%, var(--green) 60%, #126B2A 100%); }
+.cc-gold { background: linear-gradient(160deg, #E8B830 0%, var(--gold) 60%, #A07510 100%); }
+.cc-purple { background: linear-gradient(160deg, #8B5CF6 0%, #7C3AED 60%, #5B21B6 100%); }
+.cc-teal { background: linear-gradient(160deg, #14B8A6 0%, #0891B2 60%, #0E7490 100%); }
+.cc-dark { background: linear-gradient(160deg, #1E293B 0%, #111827 60%, #0C1222 100%); border: 1px solid rgba(255,255,255,0.08); }
 @media (min-width: 640px) { .opp-grid { grid-template-columns: repeat(3, 1fr); } }
 
 /* ===== EVENTS ===== */
@@ -382,37 +390,52 @@ a { text-decoration: none; color: inherit; }
 <section class="section reveal">
   <div class="section-tag">Opòtinite</div>
   <h2 class="section-title" data-i18n="eco_title">Ekosistèm HaitiBiznis</h2>
-  <p class="section-desc" data-i18n="eco_desc">Dekouvri platfòm ki ka ede ou grandi, touche, ak konekte.</p>
+  <p class="section-desc" data-i18n="eco_desc">9 platfòm pou ou grandi, touche, ak konekte.</p>
   <div class="opp-grid">
-    <a href="https://48hoursready.com?ref=SHALOM" class="opp-card" style="border-left:3px solid #F97316;">
-      <div class="opp-card-icon">🚀</div>
-      <div class="opp-card-name">48HoursReady</div>
-      <div class="opp-card-desc">Bati prezans dijital ou</div>
+    <a href="https://haitibiznis.com/koutye.html?ref=SHALOM" class="opp-card cc-flag" target="_blank">
+      <div class="opp-card-icon">💰</div>
+      <div class="opp-card-name">Parenaj Biznis</div>
+      <div class="opp-card-desc">Konekte biznis. Touche komisyon.</div>
     </a>
-    <a href="https://myplopplop.com?ref=SHALOM" class="opp-card" style="border-left:3px solid #D21034;">
-      <div class="opp-card-icon">🛒</div>
-      <div class="opp-card-name">MyPlopPlop</div>
-      <div class="opp-card-desc">Vann pwodwi sou entènèt</div>
-    </a>
-    <a href="https://msouwout.com?ref=SHALOM" class="opp-card" style="border-left:3px solid #003DA5;">
+    <a href="https://msouwout.com?ref=SHALOM" class="opp-card cc-blue" target="_blank">
       <div class="opp-card-icon">🚗</div>
       <div class="opp-card-name">MsouWout</div>
-      <div class="opp-card-desc">Kondwi ak livre</div>
+      <div class="opp-card-desc">Fè kous ak livrezon. Touche chak jou.</div>
     </a>
-    <a href="https://haitibiznis.com/events.html?ref=SHALOM" class="opp-card" style="border-left:3px solid #7C3AED;">
+    <a href="https://msouwout.com/logistics.html?ref=SHALOM" class="opp-card cc-dark" target="_blank">
+      <div class="opp-card-icon">🚛</div>
+      <div class="opp-card-name">MsouWout Logistics</div>
+      <div class="opp-card-desc">Kamyon, kontenè, flatbed. Lojistik komèsyal.</div>
+    </a>
+    <a href="https://myplopplop.com?ref=SHALOM" class="opp-card cc-red" target="_blank">
+      <div class="opp-card-icon">🛒</div>
+      <div class="opp-card-name">MyPlopPlop</div>
+      <div class="opp-card-desc">Vann pwodwi. Jwenn plis kliyan.</div>
+    </a>
+    <a href="https://48hoursready.com?ref=SHALOM" class="opp-card cc-green" target="_blank">
+      <div class="opp-card-icon">🚀</div>
+      <div class="opp-card-name">48HoursReady</div>
+      <div class="opp-card-desc">Bati prezans dijital ou an 48 èdtan.</div>
+    </a>
+    <a href="https://haitibiznis.com/events.html?ref=SHALOM" class="opp-card cc-purple" target="_blank">
       <div class="opp-card-icon">🎫</div>
       <div class="opp-card-name">Tikè Lakay</div>
-      <div class="opp-card-desc">Evènman ak tikè</div>
+      <div class="opp-card-desc">Kreye evènman, vann tikè.</div>
     </a>
-    <a href="https://haitibiznis.com/prolakay.html?ref=SHALOM" class="opp-card" style="border-left:3px solid #0891B2;">
+    <a href="https://haitibiznis.com/prolakay.html?ref=SHALOM" class="opp-card cc-teal" target="_blank">
       <div class="opp-card-icon">👨‍💼</div>
       <div class="opp-card-name">Pwofesyonèl Lakay</div>
-      <div class="opp-card-desc">Sèvis pwofesyonèl</div>
+      <div class="opp-card-desc">Ofri sèvis pwofesyonèl ou.</div>
     </a>
-    <a href="https://myplopplop.com/sol.html?ref=SHALOM" class="opp-card" style="border-left:3px solid #16A34A;">
+    <a href="https://myplopplop.com/sol.html?ref=SHALOM" class="opp-card cc-gold" target="_blank">
       <div class="opp-card-icon">💰</div>
       <div class="opp-card-name">Sòl</div>
-      <div class="opp-card-desc">Epay kominotè</div>
+      <div class="opp-card-desc">Epay kominotè dijital.</div>
+    </a>
+    <a href="https://haitibiznis.com/utility-hub.html?ref=SHALOM" class="opp-card cc-dark" target="_blank">
+      <div class="opp-card-icon">⚡</div>
+      <div class="opp-card-name">Utility Hub</div>
+      <div class="opp-card-desc">Peye EDH, DINEPA. Touche komisyon.</div>
     </a>
   </div>
 </section>
