@@ -1,6 +1,6 @@
 var ShalomT = {
   kr: {
-    nav_home:'Akèy',nav_about:'Sou Nou',nav_donate:'Don',nav_member:'Manm',nav_agri:'Agrikilti',nav_opp:'Opòtinite',nav_events:'Evènman',nav_contact:'Kontakte',
+    nav_home:'Akèy',nav_about:'Sou Nou',nav_donate:'Don',nav_member:'Manm',nav_agri:'Agrikilti',nav_opp:'Opòtinite',nav_events:'Evènman',nav_media:'Medya',nav_contact:'Kontakte',
     hero_sub:'Bati lafwa, kominote, ak opòtinite nan tout Ayiti ak dyaspora a.',
     hero_donate:'💛 Fè yon Don',hero_member:'🤝 Vin Manm',hero_agri:'🌾 Sipòte Agrikilti',
     vm_tag:'Vizyon & Misyon',vision_title:'Vizyon Nou',vision_desc:'Yon Ayiti kote chak moun gen aksè a lafwa, manje, ak opòtinite. Nou reve yon nasyon kote kominote yo pwospere ansanm.',
@@ -20,7 +20,7 @@ var ShalomT = {
     faq_free:'Èske manm nan gratis?',faq_free_a:'Wi, manm nan totalman gratis. Kontribisyon yo opsyonèl.',faq_abroad:'Èske mwen ka enskri depi lòt bò dlo?',faq_abroad_a:'Wi, nou aksepte manm dyaspora nan tout mond lan.',faq_benefits:'Ki avantaj manm yo genyen?',faq_benefits_a:'Kominote, kwasans espirityèl, rezo biznis, aksè agrikilti, evènman eksklizif.'
   },
   fr: {
-    nav_home:'Accueil',nav_about:'A Propos',nav_donate:'Don',nav_member:'Membre',nav_agri:'Agriculture',nav_opp:'Opportunites',nav_events:'Evenements',nav_contact:'Contact',
+    nav_home:'Accueil',nav_about:'A Propos',nav_donate:'Don',nav_member:'Membre',nav_agri:'Agriculture',nav_opp:'Opportunites',nav_events:'Evenements',nav_media:'Medias',nav_contact:'Contact',
     hero_sub:'Batir la foi, la communaute et les opportunites a travers Haiti et la diaspora.',
     hero_donate:'💛 Faire un Don',hero_member:'🤝 Devenir Membre',hero_agri:'🌾 Soutenir Agriculture',
     vm_tag:'Vision & Mission',vision_title:'Notre Vision',vision_desc:'Un Haiti ou chaque personne a acces a la foi, la nourriture et les opportunites. Nous revons d\'une nation ou les communautes prosperent ensemble.',
@@ -40,7 +40,7 @@ var ShalomT = {
     faq_free:'L\'adhesion est-elle gratuite?',faq_free_a:'Oui, l\'adhesion est totalement gratuite. Les contributions sont optionnelles.',faq_abroad:'Puis-je m\'inscrire depuis l\'etranger?',faq_abroad_a:'Oui, nous accueillons les membres de la diaspora du monde entier.',faq_benefits:'Quels sont les avantages?',faq_benefits_a:'Communaute, croissance spirituelle, reseau business, acces agriculture, evenements exclusifs.'
   },
   en: {
-    nav_home:'Home',nav_about:'About',nav_donate:'Donate',nav_member:'Membership',nav_agri:'Agriculture',nav_opp:'Opportunities',nav_events:'Events',nav_contact:'Contact',
+    nav_home:'Home',nav_about:'About',nav_donate:'Donate',nav_member:'Membership',nav_agri:'Agriculture',nav_opp:'Opportunities',nav_events:'Events',nav_media:'Media',nav_contact:'Contact',
     hero_sub:'Building faith, community, and opportunity across Haiti and the diaspora.',
     hero_donate:'💛 Donate',hero_member:'🤝 Become a Member',hero_agri:'🌾 Support Agriculture',
     vm_tag:'Vision & Mission',vision_title:'Our Vision',vision_desc:'A Haiti where every person has access to faith, food, and opportunity. We dream of a nation where communities thrive together.',
