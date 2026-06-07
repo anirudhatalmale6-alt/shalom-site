@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Medya — Shalom Radio / TV</title>
+<meta name="description" content="Shalom Radio / TV — Gade an dirèk, koute an dirèk, rete konekte ak Shalom Tabernacle de Gloire.">
+<meta property="og:title" content="Medya — Shalom Radio / TV">
+<meta property="og:description" content="Watch Live, Listen Live, Stay Connected with Shalom Tabernacle de Gloire.">
+<meta property="og:image" content="https://anirudhatalmale6-alt.github.io/shalom-site/assets/shalom-logo.jpg">
+<meta property="og:url" content="https://anirudhatalmale6-alt.github.io/shalom-site/media.html">
+<meta property="og:site_name" content="Shalom Tabernacle de Gloire">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#003DA5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Shalom">
+<link rel="apple-touch-icon" href="assets/shalom-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #003DA5;
+  --blue-dark: #002B75;
+  --blue-light: #E8F0FE;
+  --gold: #D4A843;
+  --gold-dark: #B8922E;
+  --gold-light: #FDF6E7;
+  --green: #2D8B4E;
+  --green-light: #E8F5EE;
+  --white: #FFFFFF;
+  --off-white: #FAFBFD;
+  --gray-50: #F8F9FC;
+  --gray-100: #F1F3F8;
+  --gray-200: #E2E6EF;
+  --gray-300: #C8CEDB;
+  --gray-400: #8D95A8;
+  --gray-500: #5E6577;
+  --gray-600: #3D4355;
+  --gray-800: #1A1F2E;
+  --red: #D21034;
+  --red-dark: #8B0A1E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--gray-600); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== NAVBAR ===== */
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 20px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-light); }
+.nav-brand span { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--blue); }
+.nav-links { display: none; gap: 4px; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray-500); padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-toggle { display: flex; gap: 2px; }
+.lang-toggle button { background: none; border: 1px solid var(--gray-200); padding: 4px 8px; font-size: 0.65rem; font-family: var(--font-mono); font-weight: 500; color: var(--gray-400); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.lang-toggle button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2px; background: var(--gray-500); border-radius: 2px; transition: all 0.3s; }
+
+/* Mobile menu */
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: block; opacity: 1; }
+.mobile-panel { position: absolute; right: 0; top: 0; bottom: 0; width: 280px; background: #fff; padding: 24px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: -8px 0 32px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-panel { transform: translateX(0); }
+.mobile-panel-close { background: none; border: none; font-size: 1.4rem; color: var(--gray-400); cursor: pointer; position: absolute; top: 16px; right: 16px; }
+.mobile-panel a { display: block; padding: 12px 0; font-size: 0.95rem; font-weight: 500; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); }
+.mobile-panel a:hover { color: var(--blue); }
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+}
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.25s; border: 2px solid transparent; text-align: center; }
+.btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.3); }
+.btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,61,165,0.25); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: #246F3F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,78,0.25); }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+.btn-outline-green { background: transparent; color: var(--green); border-color: var(--green); }
+.btn-outline-green:hover { background: var(--green-light); transform: translateY(-2px); }
+.btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+.btn-red:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(210,16,52,0.3); }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 12px; }
+.section-desc { font-size: 0.92rem; color: var(--gray-400); max-width: 560px; line-height: 1.7; }
+
+/* ===== HERO ===== */
+.hero { position: relative; background: linear-gradient(160deg, var(--gray-800) 0%, #0D1117 60%, #000 100%); padding: 64px 20px 56px; text-align: center; overflow: hidden; color: #fff; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(210,16,52,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0,61,165,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: #FF4D4D; background: rgba(210,16,52,0.15); border: 1px solid rgba(210,16,52,0.3); padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+.hero-badge .pulse-dot { width: 8px; height: 8px; background: #FF4D4D; border-radius: 50%; animation: pulse 1.5s infinite; display: inline-block; }
+.hero h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; color: #fff; letter-spacing: -0.01em; }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 28px; line-height: 1.7; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (min-width: 640px) { .hero h1 { font-size: 2.6rem; } }
+
+/* ===== LIVE STREAM SECTION ===== */
+.stream-section { background: var(--gray-50); padding: 56px 20px; }
+.stream-inner { max-width: 1000px; margin: 0 auto; }
+.player-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.player-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.02) 20px, rgba(0,0,0,0.02) 40px);
+}
+.player-play-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+.player-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+.player-text span { display: block; font-size: 0.78rem; color: var(--gray-400); margin-top: 4px; }
+.stream-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.stream-note { font-size: 0.82rem; color: var(--gray-400); font-style: italic; }
+
+/* ===== NOW LIVE CARD ===== */
+.now-live { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.now-live-card {
+  background: linear-gradient(135deg, var(--gray-800) 0%, #0D1117 100%);
+  border-radius: 16px;
+  padding: 28px 24px;
+  color: #fff;
+  margin-top: -28px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.now-live-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.now-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #FF4D4D;
+  background: rgba(210,16,52,0.15);
+  border: 1px solid rgba(210,16,52,0.3);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+.now-live-badge .pulse-dot { width: 6px; height: 6px; background: #FF4D4D; border-radius: 50%; animation: pulse 1.5s infinite; }
+.now-live-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+.now-live-program { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+.now-live-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+.now-live-meta span { display: flex; align-items: center; gap: 6px; }
+
+/* ===== SCHEDULE SECTION ===== */
+.schedule-section { padding: 56px 20px; max-width: 1000px; margin: 0 auto; }
+.day-tabs { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; margin: 24px 0 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.day-tabs::-webkit-scrollbar { display: none; }
+.day-tab {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+}
+.day-tab:hover { color: var(--blue); border-color: var(--blue); }
+.day-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.schedule-list { display: grid; gap: 10px; }
+.schedule-card {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  align-items: center;
+  transition: all 0.2s;
+}
+.schedule-card:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(0,61,165,0.06); }
+.schedule-time {
+  min-width: 90px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-align: center;
+  line-height: 1.5;
+}
+.schedule-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); margin-bottom: 2px; }
+.schedule-info p { font-size: 0.78rem; color: var(--gray-400); }
+.schedule-icon { font-size: 1.2rem; margin-left: auto; flex-shrink: 0; }
+
+/* ===== REPLAY / ARCHIVE ===== */
+.archive-section { background: var(--gray-50); padding: 56px 20px; }
+.archive-inner { max-width: 1000px; margin: 0 auto; }
+.archive-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 24px 0; }
+.archive-card {
+  border-radius: 14px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  overflow: hidden;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.archive-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.archive-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.archive-thumb-play {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.archive-card:hover .archive-thumb-play { transform: scale(1.1); }
+.archive-thumb-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.archive-body { padding: 16px; }
+.archive-body h4 { font-size: 0.88rem; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; line-height: 1.4; }
+.archive-body .archive-meta { font-size: 0.75rem; color: var(--gray-400); display: flex; gap: 12px; }
+@media (min-width: 480px) { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 768px) { .archive-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== CTA SECTION ===== */
+.cta-section { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%); padding: 56px 20px; text-align: center; color: #fff; }
+.cta-inner { max-width: 700px; margin: 0 auto; }
+.cta-inner h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+.cta-inner p { font-size: 0.92rem; color: rgba(255,255,255,0.7); margin-bottom: 28px; line-height: 1.7; }
+.cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--gray-800); color: rgba(255,255,255,0.6); padding: 48px 20px 32px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.footer-brand h4 { font-family: var(--font-display); color: #fff; font-size: 1rem; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.8rem; line-height: 1.6; }
+.footer-col h5 { font-size: 0.72rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+/* ===== WHATSAPP FAB ===== */
+.wa-fab { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.3); z-index: 50; transition: transform 0.2s; }
+.wa-fab:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <span>Shalom</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Akèy</a>
+      <a href="about.html" data-i18n="nav_about">Sou Nou</a>
+      <a href="donate.html" data-i18n="nav_donate">Don</a>
+      <a href="membership.html" data-i18n="nav_member">Manm</a>
+      <a href="agriculture.html" data-i18n="nav_agri">Agrikilti</a>
+      <a href="opportunities.html" data-i18n="nav_opp">Opòtinite</a>
+      <a href="events.html" data-i18n="nav_events">Evènman</a>
+      <a href="media.html" class="active" data-i18n="nav_media">Medya</a>
+      <a href="contact.html" data-i18n="nav_contact">Kontakte</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-panel-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&#x2715;</button>
+    <a href="index.html">&#x1F3E0; Akèy</a>
+    <a href="about.html">&#x1F4D6; Sou Nou</a>
+    <a href="donate.html">&#x1F49B; Fè yon Don</a>
+    <a href="membership.html">&#x1F91D; Vin Manm</a>
+    <a href="agriculture.html">&#x1F33E; Pwojè Agrikilti</a>
+    <a href="opportunities.html">&#x1F680; Opòtinite</a>
+    <a href="events.html">&#x1F4C5; Evènman</a>
+    <a href="media.html" style="color:var(--blue);font-weight:700;">&#x1F4FA; Medya</a>
+    <a href="contact.html">&#x1F4AC; Kontakte Nou</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="pulse-dot"></span> AN DIRÈK</div>
+  <h1 data-i18n="media_hero">&#x1F4FA; Shalom Radio / TV</h1>
+  <p class="hero-sub" data-i18n="media_sub">Watch Live, Listen Live, Stay Connected</p>
+</section>
+
+<!-- WATCH LIVE / LISTEN LIVE -->
+<section class="stream-section reveal">
+  <div class="stream-inner">
+    <div class="section-tag" data-i18n="media_stream_tag">An Dirèk</div>
+    <h2 class="section-title" data-i18n="media_stream_title">Gade oswa Koute An Dirèk</h2>
+
+    <div class="player-placeholder">
+      <div class="player-play-icon">&#x25B6;</div>
+      <div class="player-text">
+        Stream ap vini byento / Stream coming soon
+        <span data-i18n="media_stream_note">Konekte sou YouTube, Facebook, oswa aplikasyon Shalom pou gade an dirèk</span>
+      </div>
+    </div>
+
+    <div class="stream-buttons">
+      <a href="#" class="btn btn-red" data-i18n="media_watch_live">&#x1F4FA; Gade An Dirèk</a>
+      <a href="#" class="btn btn-blue" data-i18n="media_listen_live">&#x1F4FB; Koute An Dirèk</a>
+    </div>
+    <p class="stream-note" data-i18n="media_stream_note">Konekte sou YouTube, Facebook, oswa aplikasyon Shalom pou gade an dirèk</p>
+  </div>
+</section>
+
+<!-- NOW LIVE -->
+<div class="now-live reveal">
+  <div class="now-live-card">
+    <div class="now-live-header">
+      <div class="now-live-badge"><span class="pulse-dot"></span> AN DIRÈK</div>
+      <span class="now-live-label" data-i18n="media_now_label">Kounye a sou Shalom TV</span>
+    </div>
+    <div class="now-live-program" data-i18n="media_now_program">Sèvis Maten</div>
+    <div class="now-live-meta">
+      <span>&#x1F552; 8:00 AM - 10:00 AM</span>
+      <span>&#x1F3A4; Pastè Muscadin</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAM SCHEDULE -->
+<section class="schedule-section reveal">
+  <div class="section-tag" data-i18n="media_schedule_tag">Pwogram</div>
+  <h2 class="section-title" data-i18n="media_schedule_title">Orè Pwogram yo</h2>
+  <p class="section-desc" data-i18n="media_schedule_desc">Pwogram ki pase chak jou sou Shalom Radio / TV</p>
+
+  <div class="day-tabs" id="dayTabs">
+    <button class="day-tab active" data-day="lendi">Lendi</button>
+    <button class="day-tab" data-day="madi">Madi</button>
+    <button class="day-tab" data-day="mèkredi">Mèkredi</button>
+    <button class="day-tab" data-day="jedi">Jedi</button>
+    <button class="day-tab" data-day="vandredi">Vandredi</button>
+    <button class="day-tab" data-day="samdi">Samdi</button>
+    <button class="day-tab" data-day="dimanch">Dimanch</button>
+  </div>
+
+  <div class="schedule-list" id="scheduleList">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- REPLAY / ARCHIVE -->
+<section class="archive-section reveal">
+  <div class="archive-inner">
+    <div class="section-tag" data-i18n="media_archive_tag">Achiv</div>
+    <h2 class="section-title" data-i18n="media_archive_title">Replay / Achiv</h2>
+    <p class="section-desc" data-i18n="media_archive_desc">Rewatch sèvis ak pwogram ki te pase deja</p>
+
+    <div class="archive-grid">
+      <div class="archive-card">
+        <div class="archive-thumb">
+          <div class="archive-thumb-play">&#x25B6;</div>
+          <div class="archive-thumb-duration">1:52:30</div>
+        </div>
+        <div class="archive-body">
+          <h4>Sèvis Dimanch 1 Jen 2026</h4>
+          <div class="archive-meta">
+            <span>&#x1F4C5; 1 Jen 2026</span>
+            <span>&#x1F552; 1h 52m</span>
+          </div>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-thumb">
+          <div class="archive-thumb-play">&#x25B6;</div>
+          <div class="archive-thumb-duration">45:12</div>
+        </div>
+        <div class="archive-body">
+          <h4>Entèvyou ak Pastè Muscadin</h4>
+          <div class="archive-meta">
+            <span>&#x1F4C5; 29 Me 2026</span>
+            <span>&#x1F552; 45m</span>
+          </div>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-thumb">
+          <div class="archive-thumb-play">&#x25B6;</div>
+          <div class="archive-thumb-duration">1:15:08</div>
+        </div>
+        <div class="archive-body">
+          <h4>Pwogram Jèn — Espwa pou Demen</h4>
+          <div class="archive-meta">
+            <span>&#x1F4C5; 27 Me 2026</span>
+            <span>&#x1F552; 1h 15m</span>
+          </div>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-thumb">
+          <div class="archive-thumb-play">&#x25B6;</div>
+          <div class="archive-thumb-duration">2:01:44</div>
+        </div>
+        <div class="archive-body">
+          <h4>Sèvis Aswè Espesyal — Lapriyè Nasyonal</h4>
+          <div class="archive-meta">
+            <span>&#x1F4C5; 25 Me 2026</span>
+            <span>&#x1F552; 2h 01m</span>
+          </div>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-thumb">
+          <div class="archive-thumb-play">&#x25B6;</div>
+          <div class="archive-thumb-duration">38:20</div>
+        </div>
+        <div class="archive-body">
+          <h4>Nouvèl ak Refleksyon — Semèn 21 Me</h4>
+          <div class="archive-meta">
+            <span>&#x1F4C5; 21 Me 2026</span>
+            <span>&#x1F552; 38m</span>
+          </div>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-thumb">
+          <div class="archive-thumb-play">&#x25B6;</div>
+          <div class="archive-thumb-duration">1:48:55</div>
+        </div>
+        <div class="archive-body">
+          <h4>Adorasyon Espesyal — Dimanch 18 Me</h4>
+          <div class="archive-meta">
+            <span>&#x1F4C5; 18 Me 2026</span>
+            <span>&#x1F552; 1h 48m</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <a href="#" class="btn btn-blue" data-i18n="media_archive_btn">&#x1F4C2; Wè Tout Achiv</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <h2 data-i18n="media_cta_title">Sipòte Misyon Shalom</h2>
+    <p data-i18n="media_cta_desc">Kontribisyon ou ede nou kontinye preche levanjil, bay manje, ak bati kominote.</p>
+    <div class="cta-buttons">
+      <a href="donate.html" class="btn btn-gold" data-i18n="media_cta_donate">&#x1F49B; Fè yon Don</a>
+      <a href="membership.html" class="btn btn-outline-white" data-i18n="media_cta_member">&#x1F91D; Vin Manm</a>
+      <a href="https://haitibiznis.com?ref=SHALOM" class="btn btn-outline-green" style="border-color:rgba(107,232,154,0.35);color:#6BE89A;" data-i18n="media_cta_earn">&#x1F4B0; Fè Lajan Ak HaitiBiznis</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <h4>Shalom Tabernacle de Gloire</h4>
+        <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Lyen Rapid</h5>
+        <a href="about.html">Sou Nou</a>
+        <a href="donate.html">Fè yon Don</a>
+        <a href="membership.html">Vin Manm</a>
+        <a href="agriculture.html">Agrikilti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kominote</h5>
+        <a href="opportunities.html">Opòtinite</a>
+        <a href="events.html">Evènman</a>
+        <a href="media.html">Medya</a>
+        <a href="contact.html">Kontakte Nou</a>
+        <a href="https://wa.me/50946859702">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ekosistèm</h5>
+        <a href="https://haitibiznis.com?ref=SHALOM">HaitiBiznis</a>
+        <a href="https://myplopplop.com?ref=SHALOM">MyPlopPlop</a>
+        <a href="https://msouwout.com?ref=SHALOM">MsouWout</a>
+        <a href="https://48hoursready.com?ref=SHALOM">48HoursReady</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shalom Tabernacle de Gloire Inc. Tout dwa rezève.</span>
+      <span>Powered by <a href="https://haitibiznis.com?ref=SHALOM">HaitiBiznis</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50946859702" target="_blank" class="wa-fab">&#x1F4AC;</a>
+
+<script>
+/* ===== Scroll reveal ===== */
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var rect = reveals[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      reveals[i].classList.add('visible');
+    }
+  }
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+
+/* ===== Schedule Data ===== */
+var scheduleData = {
+  lendi: [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ],
+  madi: [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ],
+  'mèkredi': [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ],
+  jedi: [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ],
+  vandredi: [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ],
+  samdi: [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ],
+  dimanch: [
+    { time: '8:00 - 10:00 AM', name: 'Sèvis Maten', desc: 'Morning Service', icon: '✡' },
+    { time: '10:00 - 11:00 AM', name: 'Pwogram Jèn', desc: 'Youth Program', icon: '👥' },
+    { time: '12:00 - 1:00 PM', name: 'Nouvèl ak Refleksyon', desc: 'News & Reflection', icon: '📰' },
+    { time: '4:00 - 6:00 PM', name: 'Adorasyon Espesyal', desc: 'Special Worship', icon: '🎶' },
+    { time: '6:00 - 8:00 PM', name: 'Sèvis Aswè', desc: 'Evening Service', icon: '🌙' }
+  ]
+};
+
+function renderSchedule(day) {
+  var list = document.getElementById('scheduleList');
+  var programs = scheduleData[day] || scheduleData.lendi;
+  var html = '';
+  for (var i = 0; i < programs.length; i++) {
+    var p = programs[i];
+    html += '<div class="schedule-card">' +
+      '<div class="schedule-time">' + p.time + '</div>' +
+      '<div class="schedule-info"><h4>' + p.name + '</h4><p>' + p.desc + '</p></div>' +
+      '<div class="schedule-icon">' + p.icon + '</div>' +
+      '</div>';
+  }
+  list.innerHTML = html;
+}
+
+/* Day tab clicks */
+var tabs = document.querySelectorAll('.day-tab');
+for (var t = 0; t < tabs.length; t++) {
+  tabs[t].addEventListener('click', function() {
+    for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove('active');
+    this.classList.add('active');
+    renderSchedule(this.getAttribute('data-day'));
+  });
+}
+
+/* Render default */
+renderSchedule('lendi');
+
+/* ===== i18n ===== */
+var T = {
+  kr: {
+    nav_home:'Akèy',nav_about:'Sou Nou',nav_donate:'Don',nav_member:'Manm',nav_agri:'Agrikilti',nav_opp:'Opòtinite',nav_events:'Evènman',nav_media:'Medya',nav_contact:'Kontakte',
+    media_hero:'📺 Shalom Radio / TV',
+    media_sub:'Gade An Dirèk, Koute An Dirèk, Rete Konekte',
+    media_stream_tag:'An Dirèk',
+    media_stream_title:'Gade oswa Koute An Dirèk',
+    media_stream_note:'Konekte sou YouTube, Facebook, oswa aplikasyon Shalom pou gade an dirèk',
+    media_watch_live:'📺 Gade An Dirèk',
+    media_listen_live:'📻 Koute An Dirèk',
+    media_now_label:'Kounye a sou Shalom TV',
+    media_now_program:'Sèvis Maten',
+    media_schedule_tag:'Pwogram',
+    media_schedule_title:'Orè Pwogram yo',
+    media_schedule_desc:'Pwogram ki pase chak jou sou Shalom Radio / TV',
+    media_archive_tag:'Achiv',
+    media_archive_title:'Replay / Achiv',
+    media_archive_desc:'Rewatch sèvis ak pwogram ki te pase deja',
+    media_archive_btn:'📂 Wè Tout Achiv',
+    media_cta_title:'Sipòte Misyon Shalom',
+    media_cta_desc:'Kontribisyon ou ede nou kontinye preche levanjil, bay manje, ak bati kominote.',
+    media_cta_donate:'💛 Fè yon Don',
+    media_cta_member:'🤝 Vin Manm',
+    media_cta_earn:'💰 Fè Lajan Ak HaitiBiznis'
+  },
+  fr: {
+    nav_home:'Accueil',nav_about:'A Propos',nav_donate:'Don',nav_member:'Membre',nav_agri:'Agriculture',nav_opp:'Opportunites',nav_events:'Evenements',nav_media:'Media',nav_contact:'Contact',
+    media_hero:'📺 Shalom Radio / TV',
+    media_sub:'Regardez en Direct, Ecoutez en Direct, Restez Connecte',
+    media_stream_tag:'En Direct',
+    media_stream_title:'Regarder ou Ecouter en Direct',
+    media_stream_note:'Connectez-vous sur YouTube, Facebook ou l\'application Shalom pour regarder en direct',
+    media_watch_live:'📺 Regarder en Direct',
+    media_listen_live:'📻 Ecouter en Direct',
+    media_now_label:'Actuellement sur Shalom TV',
+    media_now_program:'Service du Matin',
+    media_schedule_tag:'Programmes',
+    media_schedule_title:'Grille des Programmes',
+    media_schedule_desc:'Programmes diffuses chaque jour sur Shalom Radio / TV',
+    media_archive_tag:'Archives',
+    media_archive_title:'Replay / Archives',
+    media_archive_desc:'Revisionner les services et programmes deja diffuses',
+    media_archive_btn:'📂 Voir Toutes les Archives',
+    media_cta_title:'Soutenez la Mission Shalom',
+    media_cta_desc:'Votre contribution nous aide a continuer a precher l\'evangile, nourrir et batir la communaute.',
+    media_cta_donate:'💛 Faire un Don',
+    media_cta_member:'🤝 Devenir Membre',
+    media_cta_earn:'💰 Gagnez avec HaitiBiznis'
+  },
+  en: {
+    nav_home:'Home',nav_about:'About',nav_donate:'Donate',nav_member:'Membership',nav_agri:'Agriculture',nav_opp:'Opportunities',nav_events:'Events',nav_media:'Media',nav_contact:'Contact',
+    media_hero:'📺 Shalom Radio / TV',
+    media_sub:'Watch Live, Listen Live, Stay Connected',
+    media_stream_tag:'Live',
+    media_stream_title:'Watch or Listen Live',
+    media_stream_note:'Connect on YouTube, Facebook, or the Shalom app to watch live',
+    media_watch_live:'📺 Watch Live',
+    media_listen_live:'📻 Listen Live',
+    media_now_label:'Now on Shalom TV',
+    media_now_program:'Morning Service',
+    media_schedule_tag:'Programs',
+    media_schedule_title:'Program Schedule',
+    media_schedule_desc:'Programs broadcast daily on Shalom Radio / TV',
+    media_archive_tag:'Archives',
+    media_archive_title:'Replay / Archives',
+    media_archive_desc:'Rewatch past services and programs',
+    media_archive_btn:'📂 See All Archives',
+    media_cta_title:'Support the Shalom Mission',
+    media_cta_desc:'Your contribution helps us continue preaching the gospel, feeding families, and building community.',
+    media_cta_donate:'💛 Donate',
+    media_cta_member:'🤝 Become a Member',
+    media_cta_earn:'💰 Earn with HaitiBiznis'
+  }
+};
+
+function setLang(lang) {
+  /* Update toggle buttons */
+  var btns = document.querySelectorAll('.lang-toggle button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('active');
+    if (btns[i].textContent.trim().toLowerCase() === lang.toLowerCase()) {
+      btns[i].classList.add('active');
+    }
+  }
+  localStorage.setItem('shalom-lang', lang);
+
+  /* Apply local translations */
+  var t = T[lang] || T.kr;
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var j = 0; j < els.length; j++) {
+    var key = els[j].getAttribute('data-i18n');
+    if (t[key]) els[j].textContent = t[key];
+  }
+
+  /* Delegate to shared i18n if available */
+  if (typeof shalomSetLang === 'function') {
+    shalomSetLang(lang);
+  }
+}
+
+/* Restore saved language */
+var savedLang = localStorage.getItem('shalom-lang') || 'kr';
+setLang(savedLang);
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
