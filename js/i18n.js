@@ -7,7 +7,7 @@ var ShalomT = {
     mission_title:'Misyon Nou',mission_desc:'Ranfòse kominote yo atravè kwasans espirityèl, devlopman ekonomik, ak agrikilti dirab. Chak aksyon nou pran kreye enpak reyèl.',
     fonds_desc:'Kontribisyon ou ede bati lekòl, sipòte pwojè agrikilti, ak bay fanmi yo espwa pou yon pi bon demen.',fonds_btn:'💛 Fè yon Don Kounye a',
     member_title:'Vin Pati nan Fanmi Shalom',member_desc:'Rejwenn yon kominote ki kwè nan pouvwa lafwa, inite, ak aksyon kolektif.',member_btn:'🤝 Enskri Kounye a',
-    hero_agri_soon:'🌾 Pwojè Agrikilti — Byento',agri_title:'Pwojè Agrikilti',agri_desc:'Bati avni manje Ayiti. Nou devlope tè pou plante manje pou kominote nou an — kreye djòb, bay manje, ak bati endepandans alimantè.',
+    hero_shop:'🛒 Achte sou Billionorth',hero_agri_soon:'🌾 Pwojè Agrikilti — Byento',agri_title:'Pwojè Agrikilti',agri_desc:'Bati avni manje Ayiti. Nou devlope tè pou plante manje pou kominote nou an — kreye djòb, bay manje, ak bati endepandans alimantè.',
     eco_title:'Ekosistèm HaitiBiznis',eco_desc:'Dekouvri platfòm ki ka ede ou grandi, touche, ak konekte.',
     events_title:'Pwochen Evènman yo',events_btn:'📅 Wè Tout Evènman',
     about_hero:'Sou Nou',about_who:'Kiyès Nou Ye',about_values:'Valè Nou yo',about_leadership:'Lidèchip',about_faq:'Kesyon Souvan',
