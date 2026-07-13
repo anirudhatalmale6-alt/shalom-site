@@ -2,23 +2,30 @@
   "name": "Shalom Tabernacle de Gloire",
   "short_name": "Shalom",
   "description": "Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.",
-  "start_url": "/shalom-site/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#003DA5",
   "theme_color": "#003DA5",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "assets/shalom-logo.jpg",
+      "src": "assets/icon-192.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "assets/shalom-logo.jpg",
+      "src": "assets/icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

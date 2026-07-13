@@ -4,10 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Evènman — Shalom Tabernacle de Gloire</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#003DA5">
 <meta name="description" content="Evènman Shalom Tabernacle de Gloire — sèvis, konferans, ak aktivite kominotè.">
 <meta property="og:title" content="Evènman — Shalom Tabernacle de Gloire">
 <meta property="og:description" content="Sèvis, konferans, ak aktivite kominotè.">
-<meta property="og:image" content="https://raw.githubusercontent.com/anirudhatalmale6-alt/shalom-site/main/assets/shalom-logo.jpg">
+<meta property="og:image" content="https://shalomhaiti.com/assets/og-shalom.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -157,7 +163,7 @@ a { text-decoration: none; color: inherit; }
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <img src="assets/shalom-logo.jpg" alt="Shalom">
+      <img src="assets/shalom-logo.jpg" alt="Shalom Tabernacle de Gloire — Akèy">
       <span>Shalom</span>
     </a>
     <div class="nav-links">
@@ -206,23 +212,8 @@ a { text-decoration: none; color: inherit; }
   <p class="hero-sub">Sèvis espesyal, konferans, fòmasyon, ak aktivite kominotè. Vin patisipe nan mouvman an!</p>
 </section>
 
-<!-- FEATURED EVENT -->
-<section class="section reveal">
-  <div class="featured-event">
-    <span class="featured-badge">&#11088; EVÈNMAN ESPESYAL</span>
-    <h2>Gran Konferans Lafwa &amp; Devlopman 2026</h2>
-    <div class="featured-event-meta">
-      <span>&#128197; 20 Jiyè 2026</span>
-      <span>&#128337; 9:00 AM - 5:00 PM</span>
-      <span>&#128205; Port-au-Prince, Ayiti</span>
-    </div>
-    <p>Yon jounen konplè konsantre sou lafwa, devlopman pèsonèl, antreprenarya, ak vizyon pou Ayiti. Oratè envite, atelye pratik, ak netwòking. Pa manke evènman sa a!</p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/50946859702?text=Mwen%20vle%20enskri%20pou%20Gran%20Konferans%20Lafwa%20%26%20Devlopman%202026" target="_blank" class="btn btn-gold">&#128221; Enskri Kounye a</a>
-      <a href="contact.html" class="btn btn-outline-white">&#128172; Plis Enfòmasyon</a>
-    </div>
-  </div>
-</section>
+<!-- FEATURED EVENT — pwochen evènman an, otomatik / the next event, automatic -->
+<section class="section reveal" id="featuredEvent"></section>
 
 <!-- FILTER + EVENT LIST -->
 <section class="section reveal" style="padding-top: 0;">
@@ -236,104 +227,9 @@ a { text-decoration: none; color: inherit; }
     <button class="filter-tab" onclick="filterEvents('past')">Pase</button>
   </div>
 
-  <div class="event-list" id="eventList">
+  <div class="event-list" id="eventList"></div>
 
-    <!-- Event 1: Upcoming -->
-    <div class="event-card" data-type="upcoming">
-      <div class="event-date">
-        <div class="month">JEN</div>
-        <div class="day">15</div>
-      </div>
-      <div class="event-info">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <h4>Sèvis Espesyal Dimanch</h4>
-          <span class="event-status upcoming">K AP VINI</span>
-        </div>
-        <p class="event-desc">Yon sèvis espesyal ak adorasyon, prediksyon, ak priyè pou kominote a. Tout moun envite vini ak fanmi yo.</p>
-        <div class="event-meta">
-          <span>&#128337; 10:00 AM - 1:00 PM</span>
-          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event 2: Upcoming -->
-    <div class="event-card" data-type="upcoming">
-      <div class="event-date">
-        <div class="month">JEN</div>
-        <div class="day">22</div>
-      </div>
-      <div class="event-info">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <h4>Konferans Biznis &amp; Lafwa</h4>
-          <span class="event-status upcoming">K AP VINI</span>
-        </div>
-        <p class="event-desc">Yon apremidi konsantre sou antreprenarya kretyen. Aprann kijan pou kòmanse yon biznis ak prensip biblik. Oratè envite ak panel diskisyon.</p>
-        <div class="event-meta">
-          <span>&#128337; 2:00 PM - 6:00 PM</span>
-          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event 3: Upcoming -->
-    <div class="event-card" data-type="upcoming">
-      <div class="event-date">
-        <div class="month">JIY</div>
-        <div class="day">06</div>
-      </div>
-      <div class="event-info">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <h4>Lansman Pwojè Agrikilti Faz 1</h4>
-          <span class="event-status upcoming">K AP VINI</span>
-        </div>
-        <p class="event-desc">Seremoni ofisyèl pou kòmanse Faz 1 pwojè agrikilti a. Benediksyon tè, prezantasyon plan, ak envitasyon pou patnè yo.</p>
-        <div class="event-meta">
-          <span>&#128337; 9:00 AM - 12:00 PM</span>
-          <span>&#128205; Sit Agrikòl Shalom</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event 4: Past -->
-    <div class="event-card past" data-type="past">
-      <div class="event-date">
-        <div class="month">ME</div>
-        <div class="day">18</div>
-      </div>
-      <div class="event-info">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <h4>Reyinyon Anyèl Manm yo</h4>
-          <span class="event-status past-tag">PASE</span>
-        </div>
-        <p class="event-desc">Reyinyon anyèl kote manm yo te resevwa rapò sou pwogrè òganizasyon an, plan pou ane a, ak eleksyon nouvo komite.</p>
-        <div class="event-meta">
-          <span>&#128337; 3:00 PM - 6:00 PM</span>
-          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event 5: Past -->
-    <div class="event-card past" data-type="past">
-      <div class="event-date">
-        <div class="month">AVR</div>
-        <div class="day">20</div>
-      </div>
-      <div class="event-info">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <h4>Pak Espesyal &amp; Selebrayon</h4>
-          <span class="event-status past-tag">PASE</span>
-        </div>
-        <p class="event-desc">Sèvis espesyal pou selebre Pak. Adorasyon, mesaj espesyal, ak moman kominotè pou tout fanmi.</p>
-        <div class="event-meta">
-          <span>&#128337; 10:00 AM - 2:00 PM</span>
-          <span>&#128205; Shalom Tabernacle, Port-au-Prince</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <!-- CTA -->
@@ -354,7 +250,7 @@ a { text-decoration: none; color: inherit; }
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/shalom-logo.jpg" alt="Shalom">
+        <img src="assets/shalom-logo.jpg" alt="Shalom Tabernacle de Gloire — Akèy">
         <h4>Shalom Tabernacle de Gloire</h4>
         <p>Enposib, Posib. Bati lafwa, kominote, ak opòtinite nan tout Ayiti.</p>
       </div>
@@ -416,7 +312,7 @@ if (savedLang) setLang(savedLang);
 function filterEvents(type) {
   var tabs = document.querySelectorAll('.filter-tab');
   for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
-  event.target.classList.add('active');
+  if (window.event && window.event.target) window.event.target.classList.add('active');
 
   var cards = document.querySelectorAll('.event-card');
   for (var i = 0; i < cards.length; i++) {
@@ -430,6 +326,12 @@ function filterEvents(type) {
     }
   }
 }
+</script>
+<script src="js/events-data.js"></script>
+<script>
+  shalomRenderFeatured('featuredEvent');
+  shalomRenderList('eventList');
+  checkReveal();
 </script>
 <script src="js/i18n.js"></script>
 </body>
